@@ -11,11 +11,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper:#f3eee3; --paper-deep:#ede5d3; --paper-darker:#e3d9bf;
-    --surface:#fbf8f1; --ink:#1c1814; --ink-mute:#5a5147;
-    --ink-faint:#8a7f6f; --hairline:#d6cdb8; --hairline-soft:#cde3ca;
-    --rust:#a44318; --rust-deep:#7d2f0e; --sage:#4e6a3a;
-    --amber:#b07914; --oxblood:#8c2e2e; --mc-primary:#9fc69a;
+    --paper:        #dce8de;
+    --paper-deep:   #c4e0bf;
+    --paper-darker: #b5d4b0;
+    --surface:      #eef6ec;
+    --ink:          #2c2f35;
+    --ink-mute:     #595b63;
+    --ink-faint:    #74777e;
+    --hairline:     #bdd4ba;
+    --hairline-soft:#cde3ca;
+    --rust:         #5b8f74;
+    --rust-deep:    #3d6b55;
+    --sage:         #7da977;
+    --amber:        #a88a5c;
+    --oxblood:      #5b8f74;
+    --mc-primary:   #9fc69a;
     --display:'Manrope','Helvetica Neue',sans-serif;
     --sans:'Inter',system-ui,sans-serif;
     --mono:'JetBrains Mono',ui-monospace,monospace;
@@ -103,7 +113,7 @@
   /* AI gap cards — slightly different tint */
   .gap-card.ai .gap-left::before{background:radial-gradient(circle,rgba(78,106,58,.3) 0,transparent 70%);}
   .gap-card.ai .gap-problem-label{color:var(--sage);}
-  .gap-card.ai .gap-fix{background:rgba(164,67,24,.03);}
+  .gap-card.ai .gap-fix{background:rgba(91,143,116,.03);}
   .gap-card.ai .gap-fix-label{color:var(--amber);}
 
   /* PRIORITY TABLE */
@@ -114,7 +124,7 @@
   .prio-table tr:hover td{background:var(--paper-deep);}
   .prio-table td:first-child{font-weight:500;color:var(--ink);}
   .sev-badge{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;padding:4px 10px;font-weight:700;border-radius:9999px;white-space:nowrap;}
-  .sev-badge.critical{background:rgba(91,143,116,.15);color:var(--rust);border:1px solid rgba(164,67,24,.25);}
+  .sev-badge.critical{background:rgba(91,143,116,.15);color:var(--rust);border:1px solid rgba(91,143,116,.3);}
   .sev-badge.high{background:rgba(168,138,92,.12);color:var(--amber);border:1px solid rgba(176,121,20,.25);}
   .sev-badge.mid{background:rgba(28,24,20,.06);color:var(--ink-faint);border:1px solid rgba(44,47,53,0.08);}
   .effort{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);}
@@ -138,13 +148,13 @@
   .addon-field-value code{font-family:var(--mono);font-size:11.5px;background:var(--paper-deep);padding:2px 6px;color:var(--rust);}
   .addon-divider{border:none;border-top:1px dashed var(--hairline);margin:14px 0;}
   .kw-inline{font-family:var(--mono);font-size:11px;background:var(--paper-deep);padding:3px 8px;color:var(--ink-mute);border:1px solid rgba(44,47,53,0.08);display:inline-block;margin:2px 3px;}
-  .kw-inline.pri{background:rgba(91,143,116,.10);color:var(--rust);border-color:rgba(164,67,24,.25);font-weight:700;}
+  .kw-inline.pri{background:rgba(91,143,116,.12);color:var(--rust);border-color:rgba(91,143,116,.35);font-weight:700;}
 
   /* H2 revision table */
   .h2-table{width:100%;border-collapse:collapse;}
   .h2-table td{padding:9px 14px;font-size:13px;border-bottom:1px solid var(--hairline-soft);vertical-align:top;line-height:1.5;}
   .h2-table tr:last-child td{border-bottom:none;}
-  .h2-table td:first-child{color:var(--ink-mute);width:45%;background:rgba(140,46,46,.03);}
+  .h2-table td:first-child{color:var(--ink-mute);width:45%;background:rgba(91,143,116,.03);}
   .h2-table td:last-child{color:var(--ink);font-weight:500;background:rgba(91,143,116,.04);}
   .h2-table .h2-arrow{text-align:center;width:30px;color:var(--ink-faint);padding:9px 4px;}
 

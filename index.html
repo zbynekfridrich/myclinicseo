@@ -11,11 +11,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper:#f3eee3; --paper-deep:#ede5d3; --paper-darker:#e3d9bf;
-    --surface:#fbf8f1; --ink:#1c1814; --ink-mute:#5a5147;
-    --ink-faint:#8a7f6f; --hairline:#d6cdb8; --hairline-soft:#cde3ca;
-    --rust:#a44318; --rust-deep:#7d2f0e; --sage:#4e6a3a;
-    --amber:#b07914; --oxblood:#8c2e2e; --mc-primary:#9fc69a;
+    --paper:        #dce8de;
+    --paper-deep:   #c4e0bf;
+    --paper-darker: #b5d4b0;
+    --surface:      #eef6ec;
+    --ink:          #2c2f35;
+    --ink-mute:     #595b63;
+    --ink-faint:    #74777e;
+    --hairline:     #bdd4ba;
+    --hairline-soft:#cde3ca;
+    --rust:         #5b8f74;
+    --rust-deep:    #3d6b55;
+    --sage:         #7da977;
+    --amber:        #a88a5c;
+    --oxblood:      #5b8f74;
+    --mc-primary:   #9fc69a;
     --display:'Manrope','Helvetica Neue',sans-serif;
     --sans:'Inter',system-ui,sans-serif;
     --mono:'JetBrains Mono',ui-monospace,monospace;
@@ -162,14 +172,14 @@
 
 <section style="padding:40px 0 0;">
   <div class="container">
-    <div style="background:#2c2f35;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;padding:32px 40px;flex-wrap:wrap;">
+    <div style="background:#2c2f35;border-radius:20px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;padding:32px 40px;flex-wrap:wrap;box-shadow:0 4px 24px rgba(44,47,53,0.15);">
       <div>
         <div style="font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.18em;color:#7da977;font-weight:700;margin-bottom:10px;">Externí zdroj · handsonweb.online</div>
         <div style="font-family:'Manrope','Helvetica Neue',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.03em;color:#eef6ec;margin-bottom:8px;">MY CLINIC — <span style="font-weight:300;color:#9fc69a;">AI Audit</span></div>
         <div style="font-size:14px;color:#74777e;line-height:1.55;max-width:560px;">Kompletní audit viditelnosti myclinic.cz v AI systémech (ChatGPT, Gemini, Perplexity). Analýza citací, share of voice, entity coverage a doporučení pro GEO optimalizaci — vstupní podklad pro SEO briefy.</div>
       </div>
       <a href="https://handsonweb.online/reports/myclinic.cz/" target="_blank" rel="noopener"
-         style="display:inline-flex;align-items:center;gap:10px;background:#9fc69a;color:#2c2f35;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;padding:14px 24px;text-decoration:none;white-space:nowrap;transition:filter .15s;"
+         style="display:inline-flex;align-items:center;gap:10px;background:#9fc69a;color:#2c2f35;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;padding:14px 24px;border-radius:9999px;text-decoration:none;white-space:nowrap;transition:filter .15s;"
          onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter='none'">
         Otevřít audit
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
@@ -178,7 +188,10 @@
   </div>
 </section>
 
-
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Otevřené <em>potřeby</em></h2>
       <div class="section-count"><strong>2</strong> OTEVŘENÉ · 1 VYŘÍZENO</div>
     </div>
     <div class="needs-grid">
@@ -215,28 +228,40 @@
   <div class="container">
     <div class="section-head">
       <h2 class="section-title">Připravené <em>deliverables</em></h2>
-      <div class="section-count"><strong>2</strong> BRIEFY</div>
+      <div class="section-count"><strong>2</strong> DOKUMENTY</div>
     </div>
     <div class="audit-grid">
 
+      <!-- ═══ MERGED: Struktura Advertoriálu ═══ -->
       <a href="./brief-02-seo-ai-audit.html" class="audit-card">
         <div class="audit-num-block">
-          <div><div class="audit-num-label">Brief 02</div><div class="audit-num">02</div></div>
-          <div class="audit-pills"><span class="audit-pill live">Připraveno</span></div>
+          <div>
+            <div class="audit-num-label">Brief 01–02</div>
+            <div class="audit-num">01</div>
+          </div>
+          <div class="audit-pills">
+            <span class="audit-pill live">SEO audit</span>
+            <span class="audit-pill live">KW analýza</span>
+          </div>
         </div>
         <div class="audit-content">
-          <div class="audit-eyebrow">SEO &amp; AI audit · Zadání advertoriálu — Týmová péče</div>
-          <h3 class="audit-title">Co zadání <em>neřeší</em></h3>
+          <div class="audit-eyebrow">Advertoriál · Týmová péče — Kompletní brief</div>
+          <h3 class="audit-title">Struktura <em>advertoriálu</em></h3>
           <p class="audit-desc">
-            <strong>6 SEO gaps + 5 AI/GEO gaps.</strong> Každý gap má identifikovaný problém
-            a konkrétní addon připravený k vložení přímo do briefu.
+            <strong>Brief 02:</strong> 6 SEO gaps + 5 AI/GEO gaps — každý má identifikovaný problém a konkrétní addon.
             Kritické: URL slug, E-E-A-T autor, definition block pro AI, FAQ sekce.
-            Největší blokátor: <strong>MY CLINIC musí rozhodnout kdo článek podepíše.</strong>
+            Blokátor: <strong>MY CLINIC rozhodne kdo podepíše článek.</strong>
           </p>
-          <div class="audit-meta">
+          <div style="display:inline-flex;align-items:center;gap:12px;background:var(--paper);border-radius:10px;padding:10px 14px;margin-top:4px;cursor:pointer;border:1px solid var(--hairline);transition:background .15s;"
+               onclick="event.stopPropagation();event.preventDefault();window.open('./brief-01-kw-analyza.html','_blank');"
+               onmouseover="this.style.background='var(--paper-deep)'" onmouseout="this.style.background='var(--paper)'">
+            <div style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);font-weight:700;">Brief 01 · KW Analýza</div>
+            <div style="font-size:12.5px;color:var(--ink-mute);">55 KW · 5 clusterů · 11 700 GSV</div>
+            <svg style="width:13px;height:13px;color:var(--rust);flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </div>
+          <div class="audit-meta" style="margin-top:14px;">
             <span><strong>Cílí na:</strong> MY CLINIC + Copywriter + Web</span>
             <span><strong>Gaps:</strong> 11 celkem (4 kritické)</span>
-            <span><strong>Verze:</strong> 1.0</span>
             <span><strong>Aktualizováno:</strong> 28. 5. 2026</span>
           </div>
         </div>
@@ -245,38 +270,48 @@
         </div>
       </a>
 
-      <a href="./brief-01-kw-analyza.html" class="audit-card">
+      <!-- ═══ NEW: Návrh struktury webu ═══ -->
+      <div class="audit-card" style="opacity:.88;cursor:default;">
         <div class="audit-num-block">
-          <div><div class="audit-num-label">Brief 01</div><div class="audit-num">01</div></div>
-          <div class="audit-pills"><span class="audit-pill live">Připraveno</span></div>
-        </div>
-        <div class="audit-content">
-          <div class="audit-eyebrow">SEO analýza · Keyword pool — Advertoriální obsah</div>
-          <h3 class="audit-title">KW analýza <em>advertoriálů</em></h3>
-          <p class="audit-desc">
-            <strong>55 klíčových slov, 5 clusterů, 11 700 GSV.</strong>
-            Navigační cluster „hledám pediatra" (3 942 GSV) → Advertoriál Týmová péče.
-            Symptomový cluster novorozenci (467 GSV) → plánovaný 2. advertoriál.
-            Identifikována velká SEO příležitost mimo advertoriály: <strong>6 559 GSV v očkovacím clusteru.</strong>
-          </p>
-          <div class="audit-meta">
-            <span><strong>Cílí na:</strong> PPC agentura + Copywriter</span>
-            <span><strong>GSV:</strong> 11 700 celkem</span>
-            <span><strong>Verze:</strong> 1.0</span>
-            <span><strong>Aktualizováno:</strong> 28. 5. 2026</span>
+          <div>
+            <div class="audit-num-label">Deliverable 02</div>
+            <div class="audit-num">02</div>
+          </div>
+          <div class="audit-pills">
+            <span class="audit-pill draft">V přípravě</span>
           </div>
         </div>
-        <div class="audit-arrow">
+        <div class="audit-content">
+          <div class="audit-eyebrow">Web · Informační architektura — myclinic.cz</div>
+          <h3 class="audit-title">Návrh struktury <em>webu</em></h3>
+          <p class="audit-desc">
+            <strong>5 typů stránek:</strong> Specializace · Výkony · Lékaři · Programy péče · Kariéra.
+            Každý typ má definovanou strukturu sekcí, obsah, CTA hierarchii a napojení na ostatní části webu.
+            Vstupní podklad pro UX, copywriting a web development.
+          </p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;">
+            <span style="font-family:var(--mono);font-size:10px;font-weight:600;padding:4px 10px;border-radius:9999px;background:rgba(91,143,116,.10);color:var(--rust);border:1px solid rgba(91,143,116,.2);">Specializace</span>
+            <span style="font-family:var(--mono);font-size:10px;font-weight:600;padding:4px 10px;border-radius:9999px;background:rgba(91,143,116,.10);color:var(--rust);border:1px solid rgba(91,143,116,.2);">Výkony</span>
+            <span style="font-family:var(--mono);font-size:10px;font-weight:600;padding:4px 10px;border-radius:9999px;background:rgba(91,143,116,.10);color:var(--rust);border:1px solid rgba(91,143,116,.2);">Lékaři</span>
+            <span style="font-family:var(--mono);font-size:10px;font-weight:600;padding:4px 10px;border-radius:9999px;background:rgba(91,143,116,.10);color:var(--rust);border:1px solid rgba(91,143,116,.2);">Programy péče</span>
+            <span style="font-family:var(--mono);font-size:10px;font-weight:600;padding:4px 10px;border-radius:9999px;background:rgba(91,143,116,.10);color:var(--rust);border:1px solid rgba(91,143,116,.2);">Kariéra</span>
+          </div>
+          <div class="audit-meta" style="margin-top:14px;">
+            <span><strong>Cílí na:</strong> UX · Copywriting · Web dev</span>
+            <span><strong>Stav:</strong> Zadáno</span>
+            <span><strong>Čeká na:</strong> Schválení struktury</span>
+          </div>
+        </div>
+        <div class="audit-arrow" style="opacity:.3;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </div>
-      </a>
+      </div>
 
     </div>
 
     <div class="for-line">
       Zadání připravila <strong>Blanka Albrechtová</strong> (<a href="mailto:b.albrechtova@myclinic.cz">b.albrechtova@myclinic.cz</a>), SEO &amp; AI vrstva <strong>Zbyněk Fridrich</strong>.
-      Brief 02 identifikuje co chybí v zadání + přidává konkrétní addony (URL, title tag, FAQ, keyword placement, H2 revize).
-      MY CLINIC potvrdí autora článku → Copywriter dostane kompletní brief → web deployne s Schema markup.
+      Brief 01–02 tvoří kompletní základ pro advertoriál Týmová péče. MY CLINIC potvrdí autora článku → Copywriter dostane brief → web deployne se Schema markup.
       Dotazy: <a href="mailto:jsem@zbynekfridrich.cz"><strong>jsem@zbynekfridrich.cz</strong></a>
     </div>
   </div>
