@@ -37,7 +37,7 @@
   .masthead{background:rgba(220,232,222,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(44,47,53,0.08);padding:20px 0;border-bottom:none;}
   .masthead-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
   .brand{display:flex;align-items:center;gap:16px;}
-  .brand-wordmark{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-0.04em;color:var(--ink);line-height:1;white-space:nowrap;}
+  .brand-img{height:26px;width:auto;display:block;}
   .brand-sub{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink-mute);padding-left:16px;border-left:1px solid var(--hairline);}
   .meta-strip{font-family:var(--mono);font-size:11px;color:var(--ink-faint);display:flex;gap:18px;flex-wrap:wrap;}
   .meta-strip span strong{color:var(--ink);font-weight:500;}
@@ -129,7 +129,7 @@
 <header class="masthead">
   <div class="container masthead-inner">
     <div class="brand">
-      <div class="brand-wordmark">Zbyněk Fridrich</div>
+      <img src="https://zbynekfridrich.cz/_next/image?url=%2Flogo%2Flogo-pozitiv.png&w=128&q=75&dpl=dpl_Da65u1PVjxJ8zfh3v1455mt4obUg" alt="Zbyněk Fridrich" style="height:26px;width:auto;display:block;">
       <span class="brand-sub">SEO konzultant</span>
     </div>
     <div class="meta-strip">
@@ -157,7 +157,7 @@
   <div class="container">
     <div class="section-head">
       <h2 class="section-title">Audity <em>&amp; analýzy</em></h2>
-      <div class="section-count"><strong>1</strong> PŘIPOJENO · 2 BRZY</div>
+      <div class="section-count"><strong>2</strong> PŘIPOJENO · 1 BRZY</div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
 
@@ -192,17 +192,23 @@
         </div>
       </div>
 
-      <!-- Analýza KW — brzy -->
-      <div style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(44,47,53,0.06);display:flex;flex-direction:column;opacity:.65;">
+      <!-- Analýza KW — připojeno -->
+      <div style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(44,47,53,0.07);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;cursor:pointer;"
+           onclick="window.location.href='./analyza-klicovych-slov'"
+           onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 32px rgba(44,47,53,0.12)'"
+           onmouseout="this.style.transform='none';this.style.boxShadow='0 2px 16px rgba(44,47,53,0.07)'">
         <div style="padding:24px 28px 20px;">
-          <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.18em;color:var(--amber);font-weight:700;margin-bottom:10px;">Brzy · Keyword research</div>
+          <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.18em;color:var(--rust);font-weight:700;margin-bottom:10px;">Připojeno · Position tracking · Semrush</div>
           <div style="font-family:'Manrope','Helvetica Neue',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.03em;color:var(--ink);margin-bottom:8px;">Analýza <span style="font-weight:300;color:var(--rust);">klíčových slov</span></div>
-          <div style="font-size:13px;color:var(--ink-faint);line-height:1.55;">Rozšířená KW analýza pro celý web myclinic.cz — specializace, výkony, lékaři. Navazuje na keyword pool advertoriálů.</div>
+          <div style="font-size:13px;color:var(--ink-mute);line-height:1.55;">1 465 klíčových slov · 563 v SERP · 219 v Top 10 · 43 štítků. Filtrování, trend a position tracking 22.–28. 5. 2026.</div>
         </div>
         <div style="margin-top:auto;padding:0 28px 24px;">
-          <span style="display:inline-flex;align-items:center;gap:8px;background:var(--paper);color:var(--ink-faint);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;padding:11px 20px;border-radius:9999px;border:1px solid var(--hairline);">
-            Připravujeme
-          </span>
+          <a href="./analyza-klicovych-slov" style="display:inline-flex;align-items:center;gap:8px;background:var(--rust);color:#fff;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;padding:11px 20px;border-radius:9999px;text-decoration:none;transition:filter .15s;"
+             onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'"
+             onclick="event.stopPropagation()">
+            Otevřít analýzu
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
         </div>
       </div>
 
@@ -234,7 +240,7 @@
   <div class="container">
     <div class="section-head">
       <h2 class="section-title">Připravené <em>deliverables</em></h2>
-      <div class="section-count"><strong>3</strong> DOKUMENTY</div>
+      <div class="section-count"><strong>2</strong> DOKUMENTY</div>
     </div>
     <div class="audit-grid">
 
@@ -313,35 +319,7 @@
         </div>
       </div>
 
-      <!-- ═══ NEW: Rozšířené zadání ═══ -->
-      <a href="./brief-advertorial/finalni-brief" class="audit-card">
-        <div class="audit-num-block">
-          <div>
-            <div class="audit-num-label">Advertoriál 01</div>
-            <div class="audit-num">03</div>
-          </div>
-          <div class="audit-pills">
-            <span class="audit-pill live">Připraveno</span>
-          </div>
-        </div>
-        <div class="audit-content">
-          <div class="audit-eyebrow">Copywriter + Web dev — Finální zadání s SEO vrstvou</div>
-          <h3 class="audit-title">Rozšířené <em>zadání</em></h3>
-          <p class="audit-desc">
-            Původní brief MY CLINIC + kompletní SEO vrstva v jednom dokumentu.
-            <strong>URL, title, meta, keyword placement, struktura H2, E-E-A-T, FAQ, schema markup, interní linking.</strong>
-            Ready to use — copywriter i web development dostanou vše na jednom místě.
-          </p>
-          <div class="audit-meta">
-            <span><strong>Cílí na:</strong> Copywriter + Web dev</span>
-            <span><strong>Sekce:</strong> 7 (SEO + obsah)</span>
-            <span><strong>Aktualizováno:</strong> 28. 5. 2026</span>
-          </div>
-        </div>
-        <div class="audit-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </div>
-      </a>
+
 
     </div>
 
