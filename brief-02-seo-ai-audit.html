@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<title>Brief 02 — SEO & AI audit zadání · MY CLINIC · Zbyněk Fridrich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:#f3eee3; --paper-deep:#ede5d3; --paper-darker:#e3d9bf;
+    --surface:#fbf8f1; --ink:#1c1814; --ink-mute:#5a5147;
+    --ink-faint:#8a7f6f; --hairline:#d6cdb8; --hairline-soft:#e6ddc9;
+    --rust:#a44318; --rust-deep:#7d2f0e; --sage:#4e6a3a;
+    --amber:#b07914; --oxblood:#8c2e2e; --sherpas-red:#fb2942;
+    --display:'Space Grotesk','Helvetica Neue',sans-serif;
+    --sans:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  body{background-image:radial-gradient(at 12% 8%,rgba(164,67,24,0.05) 0,transparent 40%),radial-gradient(at 88% 92%,rgba(78,106,58,0.06) 0,transparent 44%);background-attachment:fixed;min-height:100vh;}
+  .container{max-width:1180px;margin:0 auto;padding:0 40px;}
+
+  /* MASTHEAD */
+  .masthead{border-bottom:2px solid var(--ink);padding:24px 0 20px;}
+  .masthead-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
+  .brand{display:flex;align-items:center;gap:16px;}
+  .brand-wordmark{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-0.04em;color:var(--ink);line-height:1;white-space:nowrap;}
+  .brand-sub{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink-mute);padding-left:16px;border-left:1px solid var(--hairline);}
+  .meta-strip{font-family:var(--mono);font-size:11px;color:var(--ink-faint);display:flex;gap:18px;flex-wrap:wrap;}
+  .meta-strip span strong{color:var(--ink);font-weight:500;}
+  a[href^="mailto:"]{color:var(--rust);text-decoration:none;border-bottom:1px solid currentColor;transition:color .15s;}
+  a[href^="mailto:"]:hover{color:var(--rust-deep);}
+  a.back-link{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-faint);text-decoration:none;border-bottom:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s;}
+  a.back-link:hover{color:var(--ink);}
+  a.back-link svg{width:14px;height:14px;}
+
+  /* HERO */
+  .hero{padding:72px 0 56px;border-bottom:1px solid var(--hairline);}
+  .eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--rust);margin-bottom:24px;}
+  h1.title{font-family:var(--display);font-weight:700;font-size:clamp(44px,6vw,88px);line-height:.95;letter-spacing:-.045em;margin-bottom:28px;color:var(--ink);}
+  h1.title em{font-style:normal;font-weight:300;color:var(--rust);}
+  .lead{font-size:18px;line-height:1.5;color:var(--ink-mute);max-width:760px;letter-spacing:-.005em;}
+  .lead strong{color:var(--ink);font-weight:600;}
+  .lead em{font-style:normal;color:var(--rust);font-weight:500;}
+
+  /* STATUS STRIP */
+  .status-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--hairline);background:var(--surface);}
+  .status-cell{padding:24px 28px;border-right:1px solid var(--hairline);}
+  .status-cell:last-child{border-right:none;}
+  .status-value{font-family:var(--display);font-size:44px;font-weight:500;line-height:1;letter-spacing:-.03em;color:var(--ink);margin-bottom:4px;}
+  .status-value.accent{color:var(--rust);}
+  .status-value.go{color:var(--sage);}
+  .status-value.warn{color:var(--amber);}
+  .status-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-faint);}
+
+  /* SECTION */
+  section{padding:64px 0 24px;}
+  .section-head{margin-bottom:36px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;border-bottom:1.5px solid var(--ink);padding-bottom:18px;}
+  h2.section-title{font-family:var(--display);font-weight:600;font-size:36px;line-height:1.05;letter-spacing:-.035em;}
+  h2.section-title em{font-style:normal;font-weight:300;color:var(--rust);}
+  .section-count{font-family:var(--mono);font-size:12px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.12em;}
+  .section-count strong{color:var(--rust);font-weight:700;}
+
+  /* BRIEF SCOPE BOX */
+  .scope-box{background:var(--surface);border:1px solid var(--hairline);padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .scope-col h3{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-faint);margin-bottom:14px;font-weight:600;}
+  .scope-list{display:flex;flex-direction:column;gap:8px;}
+  .scope-item{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--ink-mute);line-height:1.45;}
+  .scope-item .dot{width:6px;height:6px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:6px;}
+  .scope-item .dot.amber{background:var(--amber);}
+  .scope-item strong{color:var(--ink);font-weight:600;}
+
+  /* GAP CARDS */
+  .gap-grid{display:flex;flex-direction:column;gap:2px;}
+  .gap-card{background:var(--surface);border:1px solid var(--hairline);display:grid;grid-template-columns:200px 1fr 1fr;align-items:stretch;transition:border-color .15s;}
+  .gap-card:hover{border-color:var(--ink);}
+  .gap-left{background:var(--ink);padding:22px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;position:relative;overflow:hidden;}
+  .gap-left::before{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,rgba(164,67,24,.3) 0,transparent 70%);pointer-events:none;}
+  .gap-num{font-family:var(--display);font-size:52px;font-weight:500;line-height:.9;letter-spacing:-.05em;color:#d68a4f;position:relative;z-index:1;}
+  .gap-num-label{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:rgba(245,235,200,.5);margin-bottom:4px;position:relative;z-index:1;}
+  .gap-sev{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;padding:3px 8px;font-weight:700;border-radius:2px;position:relative;z-index:1;align-self:flex-start;}
+  .gap-sev.critical{background:var(--rust);color:var(--paper);}
+  .gap-sev.high{background:var(--amber);color:var(--paper);}
+  .gap-sev.mid{background:var(--ink-mute);color:var(--paper);}
+
+  .gap-problem{padding:22px 24px;border-right:1px solid var(--hairline);display:flex;flex-direction:column;gap:8px;}
+  .gap-problem-label{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--rust);font-weight:600;}
+  .gap-title{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-.02em;color:var(--ink);margin-bottom:4px;}
+  .gap-desc{font-size:13px;color:var(--ink-mute);line-height:1.55;}
+  .gap-desc strong{color:var(--ink);font-weight:600;}
+
+  .gap-fix{padding:22px 24px;background:rgba(78,106,58,.03);display:flex;flex-direction:column;gap:8px;}
+  .gap-fix-label{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--sage);font-weight:600;}
+  .gap-fix-content{font-size:13px;color:var(--ink-mute);line-height:1.55;}
+  .gap-fix-content strong{color:var(--ink);font-weight:600;}
+  .gap-fix-content code{font-family:var(--mono);font-size:11.5px;background:var(--paper-deep);padding:1px 5px;color:var(--rust);}
+
+  /* AI gap cards — slightly different tint */
+  .gap-card.ai .gap-left::before{background:radial-gradient(circle,rgba(78,106,58,.3) 0,transparent 70%);}
+  .gap-card.ai .gap-problem-label{color:var(--sage);}
+  .gap-card.ai .gap-fix{background:rgba(164,67,24,.03);}
+  .gap-card.ai .gap-fix-label{color:var(--amber);}
+
+  /* PRIORITY TABLE */
+  .prio-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--hairline);}
+  .prio-table th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-faint);font-weight:600;padding:10px 16px;text-align:left;border-bottom:1px solid var(--hairline);background:var(--paper-deep);}
+  .prio-table td{padding:12px 16px;font-size:13.5px;color:var(--ink-mute);border-bottom:1px solid var(--hairline-soft);vertical-align:middle;}
+  .prio-table tr:last-child td{border-bottom:none;}
+  .prio-table tr:hover td{background:var(--paper-deep);}
+  .prio-table td:first-child{font-weight:500;color:var(--ink);}
+  .sev-badge{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;padding:2px 8px;font-weight:700;border-radius:2px;white-space:nowrap;}
+  .sev-badge.critical{background:rgba(164,67,24,.12);color:var(--rust);border:1px solid rgba(164,67,24,.25);}
+  .sev-badge.high{background:rgba(176,121,20,.12);color:var(--amber);border:1px solid rgba(176,121,20,.25);}
+  .sev-badge.mid{background:rgba(28,24,20,.06);color:var(--ink-faint);border:1px solid var(--hairline);}
+  .effort{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);}
+  .effort strong{color:var(--ink);}
+
+  /* ADDON BLOCKS */
+  .addon-grid{display:flex;flex-direction:column;gap:24px;}
+  .addon-card{border:1px solid var(--hairline);background:var(--surface);overflow:hidden;}
+  .addon-head{background:var(--ink);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .addon-head-title{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.025em;color:var(--paper);}
+  .addon-head-title em{font-style:normal;font-weight:300;color:#d68a4f;}
+  .addon-tag{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;padding:3px 8px;border-radius:2px;font-weight:700;white-space:nowrap;}
+  .addon-tag.add{background:var(--sage);color:var(--paper);}
+  .addon-tag.revise{background:var(--amber);color:var(--paper);}
+  .addon-body{padding:24px;}
+  .addon-field{margin-bottom:16px;}
+  .addon-field:last-child{margin-bottom:0;}
+  .addon-field-label{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-faint);font-weight:600;margin-bottom:6px;}
+  .addon-field-value{font-size:13.5px;color:var(--ink-mute);line-height:1.6;}
+  .addon-field-value strong{color:var(--ink);font-weight:600;}
+  .addon-field-value code{font-family:var(--mono);font-size:11.5px;background:var(--paper-deep);padding:2px 6px;color:var(--rust);}
+  .addon-divider{border:none;border-top:1px dashed var(--hairline);margin:14px 0;}
+  .kw-inline{font-family:var(--mono);font-size:11px;background:var(--paper-deep);padding:3px 8px;color:var(--ink-mute);border:1px solid var(--hairline);display:inline-block;margin:2px 3px;}
+  .kw-inline.pri{background:rgba(164,67,24,.08);color:var(--rust);border-color:rgba(164,67,24,.25);font-weight:700;}
+
+  /* H2 revision table */
+  .h2-table{width:100%;border-collapse:collapse;}
+  .h2-table td{padding:9px 14px;font-size:13px;border-bottom:1px solid var(--hairline-soft);vertical-align:top;line-height:1.5;}
+  .h2-table tr:last-child td{border-bottom:none;}
+  .h2-table td:first-child{color:var(--ink-mute);width:45%;background:rgba(140,46,46,.03);}
+  .h2-table td:last-child{color:var(--ink);font-weight:500;background:rgba(78,106,58,.03);}
+  .h2-table .h2-arrow{text-align:center;width:30px;color:var(--ink-faint);padding:9px 4px;}
+
+  /* FAQ BLOCK */
+  .faq-list{display:flex;flex-direction:column;gap:12px;}
+  .faq-item{border:1px solid var(--hairline);background:var(--paper-deep);}
+  .faq-q{font-family:var(--sans);font-weight:600;font-size:13.5px;color:var(--ink);padding:12px 16px 4px;}
+  .faq-a{font-size:13px;color:var(--ink-mute);padding:0 16px 12px;line-height:1.55;}
+
+  /* FOR LINE */
+  .for-line{font-family:var(--mono);font-size:12px;color:var(--ink-mute);margin-top:40px;padding:16px 22px;background:var(--surface);border-left:3px solid var(--rust);line-height:1.6;}
+  .for-line strong{color:var(--ink);}
+
+  /* FOOTER */
+  footer.colophon{margin-top:80px;padding:48px 0 56px;border-top:1px solid var(--hairline);font-family:var(--mono);font-size:11px;color:var(--ink-faint);}
+  .colophon-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+
+  @media(max-width:960px){
+    .gap-card{grid-template-columns:1fr;}
+    .scope-box{grid-template-columns:1fr;}
+  }
+  @media(max-width:880px){
+    .container{padding:0 24px;}
+    .hero{padding:48px 0 40px;}
+    .status-strip{grid-template-columns:1fr 1fr;}
+    .status-cell{border-right:1px solid var(--hairline);border-bottom:1px solid var(--hairline);}
+    .status-cell:nth-child(2n){border-right:none;}
+    .status-cell:nth-last-child(-n+2){border-bottom:none;}
+    .section-head{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="container masthead-inner">
+    <div class="brand">
+      <div class="brand-wordmark">Zbyněk Fridrich</div>
+      <span class="brand-sub">SEO konzultant</span>
+    </div>
+    <div class="meta-strip">
+      <span><a href="./index.html" class="back-link" style="color:var(--ink-faint);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Dashboard
+      </a></span>
+      <span>KLIENT <strong>MY CLINIC</strong></span>
+      <span>BRIEF <strong>02 / 02</strong></span>
+      <span>AKTUALIZOVÁNO <strong>28. 5. 2026</strong></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Brief 02 · SEO & AI audit · Zadání advertoriálu — Týmová péče</div>
+    <h1 class="title">Co zadání<br><em>neřeší</em></h1>
+    <p class="lead">
+      Původní brief je silný v komunikačním rámci a kampani.
+      <em>6 SEO gaps a 5 AI/GEO gaps</em> ale způsobí, že obsah nebude
+      organicky výkonný a nebude citovaný AI systémy.
+      Tento dokument identifikuje každý gap a přidává <strong>konkrétní addony přímo do zadání.</strong>
+    </p>
+    <div style="margin-top:32px;padding:16px 20px;background:var(--surface);border:1px solid var(--hairline);display:inline-flex;gap:32px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-faint);font-weight:600;margin-bottom:4px;">Zadání &amp; obsah</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.02em;color:var(--ink);">Blanka Albrechtová</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:2px;"><a href="mailto:b.albrechtova@myclinic.cz" style="color:var(--rust);border-bottom:1px solid currentColor;text-decoration:none;">b.albrechtova@myclinic.cz</a></div>
+      </div>
+      <div style="width:1px;background:var(--hairline);"></div>
+      <div>
+        <div style="font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-faint);font-weight:600;margin-bottom:4px;">SEO &amp; AI vrstva</div>
+        <div style="font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.02em;color:var(--ink);">Zbyněk Fridrich</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:2px;"><a href="mailto:jsem@zbynekfridrich.cz" style="color:var(--rust);border-bottom:1px solid currentColor;text-decoration:none;">jsem@zbynekfridrich.cz</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATUS STRIP -->
+<div class="status-strip">
+  <div class="status-cell">
+    <div class="status-value accent">6</div>
+    <div class="status-label">SEO gaps</div>
+  </div>
+  <div class="status-cell">
+    <div class="status-value warn">5</div>
+    <div class="status-label">AI / GEO gaps</div>
+  </div>
+  <div class="status-cell">
+    <div class="status-value">4</div>
+    <div class="status-label">Kritické (řešit hned)</div>
+  </div>
+  <div class="status-cell">
+    <div class="status-value go">8</div>
+    <div class="status-label">Konkrétních addonů</div>
+  </div>
+</div>
+
+<!-- SECTION 0: Scope -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Vstupní <em>kontext</em></h2>
+      <div class="section-count">CO BRIEF ŘEŠÍ · CO NE</div>
+    </div>
+    <div class="scope-box">
+      <div class="scope-col">
+        <h3>Brief pokrývá dobře</h3>
+        <div class="scope-list">
+          <div class="scope-item"><div class="dot"></div><div>Komunikační rámec a hlavní sdělení — <strong>„Jeden pacient. Celý tým."</strong></div></div>
+          <div class="scope-item"><div class="dot"></div><div>Struktura článku a logika sekcí (sekce 4 + 7)</div></div>
+          <div class="scope-item"><div class="dot"></div><div>CTA hierarchie — 4 CTA na správných místech (sekce 8)</div></div>
+          <div class="scope-item"><div class="dot"></div><div>Kampaňová logika Google / Meta / Sklik / remarketing (sekce 9)</div></div>
+          <div class="scope-item"><div class="dot"></div><div>Měření a remarketingová publika — scroll depth, konverze (sekce 10)</div></div>
+          <div class="scope-item"><div class="dot"></div><div>Věkové segmenty a emoce rodičů (sekce 6) — silné pro targeting</div></div>
+        </div>
+      </div>
+      <div class="scope-col">
+        <h3>Brief neřeší (proto jsme tady)</h3>
+        <div class="scope-list">
+          <div class="scope-item"><div class="dot amber"></div><div>URL slug — kde stránka na webu bude žít</div></div>
+          <div class="scope-item"><div class="dot amber"></div><div>Title tag (≠ H1) a meta description</div></div>
+          <div class="scope-item"><div class="dot amber"></div><div>Keyword placement — kde v textu mají být která slova</div></div>
+          <div class="scope-item"><div class="dot amber"></div><div>Interní linking — na co z článku odkazovat</div></div>
+          <div class="scope-item"><div class="dot amber"></div><div>Schema markup — strukturovaná data pro Google a AI</div></div>
+          <div class="scope-item"><div class="dot amber"></div><div>E-E-A-T — kdo článek podepíše a proč mu Google věří</div></div>
+          <div class="scope-item"><div class="dot amber"></div><div>AI/GEO optimalizace — jak bude obsah citovaný v ChatGPT, Perplexity, Gemini</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: SEO GAPS -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">SEO <em>gaps</em></h2>
+      <div class="section-count"><strong>6</strong> IDENTIFIKOVANÝCH · ŘAZENO DLE PRIORITY</div>
+    </div>
+
+    <div class="gap-grid">
+
+      <!-- GAP S1 -->
+      <div class="gap-card">
+        <div class="gap-left">
+          <div><div class="gap-num-label">SEO Gap</div><div class="gap-num">01</div></div>
+          <div class="gap-sev critical">Kritický</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">URL slug</div>
+          <div class="gap-desc">Brief má H1, ale neřeší, <strong>kde stránka na webu bude žít.</strong> Bez URL specifikace web deployne obsah na <code>/novinky/clanek-15/</code> nebo podobnou cestu, která nemá žádnou SEO hodnotu. URL je signál pro Google i základ pro interní linking a kampaňové UTM.</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu</div>
+          <div class="gap-fix-content">
+            Primární URL: <code>/pediatrie/tymova-pece</code><br>
+            Alternativa pokud je /pediatrie hlavní stránka oboru: <code>/pediatrie</code><br>
+            Canonical: <code>https://myclinic.cz/pediatrie/tymova-pece</code><br>
+            <strong>Zadání pro web:</strong> URL musí být statická, bez parametrů, bez ID čísel.
+          </div>
+        </div>
+      </div>
+
+      <!-- GAP S2 -->
+      <div class="gap-card">
+        <div class="gap-left">
+          <div><div class="gap-num-label">SEO Gap</div><div class="gap-num">02</div></div>
+          <div class="gap-sev critical">Kritický</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">Title tag &amp; meta description</div>
+          <div class="gap-desc">Brief specifikuje H1, ale <strong>title tag v &lt;head&gt; je jiná věc</strong> — musí být kratší (max 60 znaků), obsahovat primární keyword a slouží jako inzerát v Google SERPu. Meta description ovlivňuje CTR. Copywriter ani developer bez specifikace neví co napsat.</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu</div>
+          <div class="gap-fix-content">
+            <strong>Title tag:</strong> <code>Soukromý pediatr Praha 6: týmová péče | MY CLINIC</code> (55 znaků)<br><br>
+            <strong>Meta description:</strong> Hledáte soukromého pediatra v Praze 6? V MY CLINIC pečuje o vaše dítě tým: pediatr, ORL, alergolog, fyzioterapeut. Zaregistrujte dítě. (140 znaků)
+          </div>
+        </div>
+      </div>
+
+      <!-- GAP S3 -->
+      <div class="gap-card">
+        <div class="gap-left">
+          <div><div class="gap-num-label">SEO Gap</div><div class="gap-num">03</div></div>
+          <div class="gap-sev critical">Kritický</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">Keyword placement instrukce</div>
+          <div class="gap-desc">Brief obsahuje seznam 55 keywords, ale <strong>nikde neříká copywriterovi kde a jak je použít.</strong> Výsledkem je text, který keywords přirozeně mineme nebo zahustíme na špatná místa. Google pracuje s polohou keywords — první odstavec, H2, alt text mají různou váhu.</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu</div>
+          <div class="gap-fix-content">
+            <strong>Primární KW — musí být v textu:</strong><br>
+            <code>soukromý pediatr Praha</code> → první odstavec nebo H2<br>
+            <code>pediatr Praha 6</code> → v textu min. 2×, ideálně H2 nebo H3<br>
+            <code>dětský lékař Praha 6</code> → v textu min. 1×, alt text hlavního obrázku<br><br>
+            <strong>Sekundární KW — přirozeně zahrnout:</strong><br>
+            <code>soukromá pediatrie Praha</code> · <code>pediatr Praha 6 Dejvice</code> · <code>dětský praktický lékař</code> · <code>lékař pro děti a dorost</code><br><br>
+            <strong>Délka textu:</strong> 1 800–2 500 slov (minimum pro konkurenceschopnost na navigační dotazy v Praze).
+          </div>
+        </div>
+      </div>
+
+      <!-- GAP S4 -->
+      <div class="gap-card">
+        <div class="gap-left">
+          <div><div class="gap-num-label">SEO Gap</div><div class="gap-num">04</div></div>
+          <div class="gap-sev critical">Kritický</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">Interní linking mapa</div>
+          <div class="gap-desc">Brief zmiňuje „formulář" a „programy", ale <strong>nespecifikuje žádné konkrétní interní odkazy.</strong> Interní linking přenáší autoritu mezi stránkami — a je to jeden z nejlevnějších SEO signálů. Bez instrukce copywriter neodkazuje nikam nebo odkazuje náhodně.</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu</div>
+          <div class="gap-fix-content">
+            <strong>Povinné interní odkazy (anchor text → cílová URL):</strong><br>
+            „dětský tým MY CLINIC" → <code>/tym</code> nebo <code>/lekari</code><br>
+            „novorozenecký program" → <code>/pediatrie/novorozenci</code><br>
+            „zaregistrujte dítě" → <code>/registrace</code> nebo <code>/kontakt</code><br>
+            „preventivní prohlídky" → <code>/poradna/preventivni-prohlidky</code> (až bude live)<br>
+            každý specialista v týmu → jeho profil nebo specializovaná stránka<br><br>
+            <strong>Pravidlo:</strong> nikdy <code>klikněte zde</code> nebo <code>více informací</code> — vždy deskriptivní anchor text.
+          </div>
+        </div>
+      </div>
+
+      <!-- GAP S5 -->
+      <div class="gap-card">
+        <div class="gap-left">
+          <div><div class="gap-num-label">SEO Gap</div><div class="gap-num">05</div></div>
+          <div class="gap-sev high">Vysoký</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">Schema markup</div>
+          <div class="gap-desc">Pro medicínský obsah s týmem lékařů a FAQ je strukturovaná data <strong>povinnost, ne optional.</strong> Bez schema Google nerozumí obsahu strukturovaně — ztrácíte rich snippety, knowledge panel a lékařský kontext v SERPu.</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu — zadání pro vývojáře</div>
+          <div class="gap-fix-content">
+            Implementovat JSON-LD v &lt;head&gt;:<br>
+            <code>MedicalClinic</code> — název, adresa Praha 6, telefon, ordinační hodiny<br>
+            <code>Physician</code> — pro každého lékaře v týmu (jméno, specializace, pracoviště)<br>
+            <code>FAQPage</code> — pro sekci Časté otázky (viz AI Gap 03)<br>
+            <code>Article</code> — autor, datum publikace, datum aktualizace<br>
+            <code>LocalBusiness</code> — adresa, GPS souřadnice Praha 6
+          </div>
+        </div>
+      </div>
+
+      <!-- GAP S6 -->
+      <div class="gap-card">
+        <div class="gap-left">
+          <div><div class="gap-num-label">SEO Gap</div><div class="gap-num">06</div></div>
+          <div class="gap-sev mid">Střední</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">Obrázky a alt text</div>
+          <div class="gap-desc">Brief nespecifikuje obrazový obsah ani alt texty. Alt text je SEO signál a zároveň <strong>accessibility požadavek.</strong> Medicínské stránky bez alt textů s keywords ztrácejí image search traffic a snižují page score.</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu</div>
+          <div class="gap-fix-content">
+            <strong>Hlavní obrázek:</strong> foto týmu MY CLINIC nebo pediatra s rodinou<br>
+            Alt text: <code>Tým pediatrů MY CLINIC Praha 6 — soukromá pediatrická klinika</code><br><br>
+            <strong>Doplňkové obrázky:</strong> foto každého specialisty (pro tým sekci)<br>
+            Alt text vzor: <code>[Jméno Příjmení], [specializace], MY CLINIC Praha</code>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: AI/GEO GAPS -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">AI / GEO <em>gaps</em></h2>
+      <div class="section-count"><strong>5</strong> IDENTIFIKOVANÝCH · CHATGPT · PERPLEXITY · GEMINI</div>
+    </div>
+
+    <div class="gap-grid">
+
+      <!-- GAP A1 -->
+      <div class="gap-card ai">
+        <div class="gap-left" style="background:#2a3d28;">
+          <div><div class="gap-num-label" style="color:rgba(200,230,180,.5);">AI Gap</div><div class="gap-num" style="color:#8ab87a;">01</div></div>
+          <div class="gap-sev critical" style="background:var(--sage);">Kritický</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">E-E-A-T — autor a kredibilita</div>
+          <div class="gap-desc">LLMs (ChatGPT, Perplexity, Gemini) citují medicínský obsah, který má <strong>jasného autora s ověřitelnou odborností.</strong> Anonymní článek bez jména lékaře má pro AI nulovou autoritu — i kdyby byl obsahově perfektní. Google navíc penalizuje zdravotní obsah bez autora od roku 2022 (HCU update).</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu</div>
+          <div class="gap-fix-content">
+            <strong>Přidat pod H1 nebo nad CTA:</strong><br>
+            Autor: MUDr. [Jméno Příjmení], pediatr, MY CLINIC Praha 6<br>
+            Odborná praxe: [X] let v pediatrii<br>
+            Datum publikace: [datum] · Poslední aktualizace: [datum]<br><br>
+            <strong>Přidat na konec článku:</strong> sekci „O autorovi" s fotkou, tituly, specializací a odkazem na profil lékaře.<br><br>
+            <strong>Alternativa:</strong> pokud nechce být autor jeden lékař — „Odborně garantuje tým pediatrů MY CLINIC" s odkazem na stránku týmu.
+          </div>
+        </div>
+      </div>
+
+      <!-- GAP A2 -->
+      <div class="gap-card ai">
+        <div class="gap-left" style="background:#2a3d28;">
+          <div><div class="gap-num-label" style="color:rgba(200,230,180,.5);">AI Gap</div><div class="gap-num" style="color:#8ab87a;">02</div></div>
+          <div class="gap-sev critical" style="background:var(--sage);">Kritický</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">Definition block — „co je MY CLINIC v jedné větě"</div>
+          <div class="gap-desc">AI extrahuje tzv. <strong>paragraph 0</strong> — první větu nebo krátký odstavec, který přesně a kompletně odpovídá na dotaz. Brief nemá specifikovaný žádný takový blok. Perex „Najít pediatra dnes pro mnoho rodičů znamená víc..." je dobrý pro čtenáře, ale AI ho nedokáže citovat jako odpověď na „co je MY CLINIC".</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu</div>
+          <div class="gap-fix-content">
+            <strong>Přidat jako první odstavec pod H1 (před perex):</strong><br><br>
+            „MY CLINIC je soukromá pediatrická klinika v Praze 6, kde pediatr koordinuje péči ORL specialisty, alergologa, fyzioterapeuta a dalších odborníků pod jednou střechou. Rodiny s dětmi od novorozeneckého věku zde mohou využít návaznou péči bez nutnosti přeřazení jinam."<br><br>
+            <strong>Proč to funguje:</strong> věta obsahuje název, lokaci, co dělá, pro koho — přesně to, co AI potřebuje pro citaci.
+          </div>
+        </div>
+      </div>
+
+      <!-- GAP A3 -->
+      <div class="gap-card ai">
+        <div class="gap-left" style="background:#2a3d28;">
+          <div><div class="gap-num-label" style="color:rgba(200,230,180,.5);">AI Gap</div><div class="gap-num" style="color:#8ab87a;">03</div></div>
+          <div class="gap-sev critical" style="background:var(--sage);">Kritický</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">FAQ sekce</div>
+          <div class="gap-desc">Brief nemá žádnou FAQ sekci. Přitom FAQ = <strong>tři výhody najednou:</strong> featured snippety v Google, FAQPage schema pro rich výsledky a přímé odpovědi v AI asistentech. Rodiče píší do ChatGPT přesně tyhle otázky — bez FAQ je obsah necitovatelný pro 80 % AI dotazů.</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu — připravené FAQ (použij přímo)</div>
+          <div class="gap-fix-content">
+            Přidat jako předposlední sekci před závěrečné CTA, H2: „Časté otázky o pediatrické péči MY CLINIC"<br><br>
+            <strong>Q:</strong> Je MY CLINIC soukromá klinika a co to znamená pro platbu?<br>
+            <strong>A:</strong> Ano, MY CLINIC je soukromá pediatrická klinika v Praze 6. Péče je hrazena přímou platbou nebo komerčními zdravotními pojistkami (VZP ani jiné pojišťovny nehradí). Ceny jsou dostupné na webu.<br><br>
+            <strong>Q:</strong> Jak zaregistrovat novorozence do péče MY CLINIC?<br>
+            <strong>A:</strong> Registraci novorozenců doporučujeme provést ještě před porodem — stačí vyplnit formulář na webu nebo zavolat na klientskou linku. Po přijetí vás kontaktujeme s potvrzením.<br><br>
+            <strong>Q:</strong> Jaké specialisty mohu v MY CLINIC využít?<br>
+            <strong>A:</strong> V MY CLINIC spolupracuje pediatr s ORL specialistou, alergologem a imunologem, dermatologem, fyzioterapeutem a psychologem. Vše pod jednou střechou v Praze 6.<br><br>
+            <strong>Q:</strong> Musím mít doporučení od pediatra ke specialistovi?<br>
+            <strong>A:</strong> Většinou ne — koordinaci zajistí pediatr MY CLINIC a v rámci kliniky je návaznost přímá. Nemusíte čekat na doporučení z jiné ordinace.
+          </div>
+        </div>
+      </div>
+
+      <!-- GAP A4 -->
+      <div class="gap-card ai">
+        <div class="gap-left" style="background:#2a3d28;">
+          <div><div class="gap-num-label" style="color:rgba(200,230,180,.5);">AI Gap</div><div class="gap-num" style="color:#8ab87a;">04</div></div>
+          <div class="gap-sev high" style="background:var(--amber);">Vysoký</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">Otázkové H2 — AI-citovatelná struktura</div>
+          <div class="gap-desc">Navrhované H2 jsou deklarativní: „Pediatr jako průvodce, ne osamocený bod péče." To je dobré pro čtenáře, <strong>slabé pro AI.</strong> LLMs extrahují odpovědi na otázky — H2 ve formě otázky signalizuje Googlu i AI, že sekce odpovídá na konkrétní dotaz. Výsledek: vyšší šance na „People Also Ask" a AI citace.</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu — navrhované revize H2</div>
+          <div class="gap-fix-content">
+            <table class="h2-table" style="margin-top:8px;">
+              <tr><td>Rodiče dnes hledají jistotu a návaznost</td><td class="h2-arrow">→</td><td>Proč dnes nestačí jen jedna pediatrická ordinace?</td></tr>
+              <tr><td>Pediatr jako průvodce, ne osamocený bod péče</td><td class="h2-arrow">→</td><td>Jaká je role pediatra v týmové péči?</td></tr>
+              <tr><td>Kdy do péče vstupují specialisté</td><td class="h2-arrow">→</td><td>Kdy pediatr doporučí specialistu a jak rychle?</td></tr>
+              <tr><td>Jak funguje tým MY CLINIC v praxi</td><td class="h2-arrow">→</td><td>Jak funguje týmová pediatrická péče v MY CLINIC?</td></tr>
+              <tr><td>Nejčastější situace podle věku dítěte</td><td class="h2-arrow">→</td><td>S jakými situacemi rodiny MY CLINIC nejčastěji vyhledávají?</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAP A5 -->
+      <div class="gap-card ai">
+        <div class="gap-left" style="background:#2a3d28;">
+          <div><div class="gap-num-label" style="color:rgba(200,230,180,.5);">AI Gap</div><div class="gap-num" style="color:#8ab87a;">05</div></div>
+          <div class="gap-sev high" style="background:var(--amber);">Vysoký</div>
+        </div>
+        <div class="gap-problem">
+          <div class="gap-problem-label">Chybí v briefu</div>
+          <div class="gap-title">Entity density — konkrétní jména, adresy, fakta</div>
+          <div class="gap-desc">Brief mluví obecně o „týmu" a „specialistech". AI systémy ale pracují s <strong>pojmenovanými entitami.</strong> Čím více ověřitelných konkrétních informací obsah obsahuje (jméno lékaře, adresa, certifikace, čas objednání), tím vyšší pravděpodobnost citace. Obecné texty AI ignoruje.</div>
+        </div>
+        <div class="gap-fix">
+          <div class="gap-fix-label">Addon do briefu</div>
+          <div class="gap-fix-content">
+            <strong>V sekci týmu uvádět vždy:</strong><br>
+            — Celé jméno lékaře (MUDr. Jméno Příjmení)<br>
+            — Specializaci a titul<br>
+            — Konkrétní oblast péče v MY CLINIC<br>
+            — Ideálně odkaz na profil<br><br>
+            <strong>V textu explicitně uvést:</strong><br>
+            — Adresa kliniky (ulice, Praha 6, PSČ)<br>
+            — Ordinační hodiny nebo odkaz na ně<br>
+            — Telefonní číslo nebo formulář<br>
+            — Rok založení / délka praxe (pokud relevantní)
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: PRIORITY TABLE -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Prioritizovaná <em>mapa oprav</em></h2>
+      <div class="section-count">SEŘAZENO DLE DOPADU</div>
+    </div>
+    <table class="prio-table">
+      <thead>
+        <tr>
+          <th>Gap</th>
+          <th>Typ</th>
+          <th>Závažnost</th>
+          <th>Náročnost opravy</th>
+          <th>Kdo řeší</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>URL slug</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">SEO</span></td>
+          <td><span class="sev-badge critical">Kritický</span></td>
+          <td><span class="effort"><strong>5 minut</strong> — 1 řádek do briefu</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">Zbyněk → web</span></td>
+        </tr>
+        <tr>
+          <td>E-E-A-T + autor</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">AI/GEO</span></td>
+          <td><span class="sev-badge critical">Kritický</span></td>
+          <td><span class="effort"><strong>1 hodina</strong> — rozhodnutí klienta kdo podepíše</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">MY CLINIC → Zbyněk</span></td>
+        </tr>
+        <tr>
+          <td>Definition block</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">AI/GEO</span></td>
+          <td><span class="sev-badge critical">Kritický</span></td>
+          <td><span class="effort"><strong>15 minut</strong> — text připraven výše</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">Copywriter</span></td>
+        </tr>
+        <tr>
+          <td>FAQ sekce</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">SEO + AI</span></td>
+          <td><span class="sev-badge critical">Kritický</span></td>
+          <td><span class="effort"><strong>30 minut</strong> — draft připraven výše</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">Copywriter + MY CLINIC</span></td>
+        </tr>
+        <tr>
+          <td>Keyword placement</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">SEO</span></td>
+          <td><span class="sev-badge high">Vysoký</span></td>
+          <td><span class="effort"><strong>1 hodina</strong> — addon do briefu + instrukce pro copywritera</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">Zbyněk → Copywriter</span></td>
+        </tr>
+        <tr>
+          <td>Title tag + meta</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">SEO</span></td>
+          <td><span class="sev-badge high">Vysoký</span></td>
+          <td><span class="effort"><strong>15 minut</strong> — návrh připraven výše</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">Zbyněk → web</span></td>
+        </tr>
+        <tr>
+          <td>Otázkové H2</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">AI/GEO</span></td>
+          <td><span class="sev-badge high">Vysoký</span></td>
+          <td><span class="effort"><strong>30 minut</strong> — revize H2 připravena výše</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">Copywriter</span></td>
+        </tr>
+        <tr>
+          <td>Interní linking mapa</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">SEO</span></td>
+          <td><span class="sev-badge high">Vysoký</span></td>
+          <td><span class="effort"><strong>1 hodina</strong> — závisí na URL struktuře webu</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">Zbyněk + web</span></td>
+        </tr>
+        <tr>
+          <td>Entity density</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">AI/GEO</span></td>
+          <td><span class="sev-badge high">Vysoký</span></td>
+          <td><span class="effort"><strong>od klienta</strong> — jména lékařů, adresa, fakta</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">MY CLINIC → Copywriter</span></td>
+        </tr>
+        <tr>
+          <td>Schema markup</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">SEO</span></td>
+          <td><span class="sev-badge mid">Střední</span></td>
+          <td><span class="effort"><strong>1–2 hodiny</strong> — zadání pro vývojáře</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">Web developer</span></td>
+        </tr>
+        <tr>
+          <td>Obrázky + alt text</td>
+          <td><span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">SEO</span></td>
+          <td><span class="sev-badge mid">Střední</span></td>
+          <td><span class="effort"><strong>30 minut</strong> — instrukce pro fotografa + web</span></td>
+          <td><span style="font-family:var(--mono);font-size:11px;">MY CLINIC + web</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="for-line">
+      <strong>Závěr:</strong> 4 kritické gapy (URL, E-E-A-T, definition block, FAQ) lze opravit za půl dne — a většina addonu je připravena v tomto briefu jako copy-paste.
+      Největší blokátor je na straně klienta: <strong>MY CLINIC musí rozhodnout, kdo článek podepíše.</strong>
+      Bez jména autora-lékaře nelze dokončit E-E-A-T ani entity sekci.
+      Dotazy: <a href="mailto:jsem@zbynekfridrich.cz"><strong>jsem@zbynekfridrich.cz</strong></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="colophon">
+  <div class="container colophon-inner">
+    <div>Zadání: Blanka Albrechtová · <a href="mailto:b.albrechtova@myclinic.cz">b.albrechtova@myclinic.cz</a> &nbsp;·&nbsp; SEO &amp; AI vrstva: Zbyněk Fridrich · <a href="mailto:jsem@zbynekfridrich.cz">jsem@zbynekfridrich.cz</a></div>
+    <div>Brief 02 · SEO & AI audit zadání · MY CLINIC · v1.0 · 28. 5. 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
