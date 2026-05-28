@@ -8,23 +8,23 @@
 <title>MY CLINIC SEO — Advertoriál: Týmová péče · Zbyněk Fridrich</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper:#f3eee3; --paper-deep:#ede5d3; --paper-darker:#e3d9bf;
     --surface:#fbf8f1; --ink:#1c1814; --ink-mute:#5a5147;
-    --ink-faint:#8a7f6f; --hairline:#d6cdb8; --hairline-soft:#e6ddc9;
+    --ink-faint:#8a7f6f; --hairline:#d6cdb8; --hairline-soft:#cde3ca;
     --rust:#a44318; --rust-deep:#7d2f0e; --sage:#4e6a3a;
-    --amber:#b07914; --oxblood:#8c2e2e; --sherpas-red:#fb2942;
-    --display:'Space Grotesk','Helvetica Neue',sans-serif;
+    --amber:#b07914; --oxblood:#8c2e2e; --mc-primary:#9fc69a;
+    --display:'Manrope','Helvetica Neue',sans-serif;
     --sans:'Inter',system-ui,sans-serif;
     --mono:'JetBrains Mono',ui-monospace,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;}
-  body{background-image:radial-gradient(at 12% 8%,rgba(164,67,24,0.05) 0,transparent 40%),radial-gradient(at 88% 92%,rgba(78,106,58,0.06) 0,transparent 44%);background-attachment:fixed;min-height:100vh;}
+  body{background-image:radial-gradient(at 12% 8%,rgba(91,143,116,0.07) 0,transparent 40%),radial-gradient(at 88% 92%,rgba(159,198,154,0.08) 0,transparent 44%);background-attachment:fixed;min-height:100vh;}
   .container{max-width:1180px;margin:0 auto;padding:0 40px;}
-  .masthead{border-bottom:2px solid var(--ink);padding:24px 0 20px;}
+  .masthead{background:rgba(220,232,222,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(44,47,53,0.08);padding:20px 0;border-bottom:none;}
   .masthead-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
   .brand{display:flex;align-items:center;gap:16px;}
   .brand-wordmark{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-0.04em;color:var(--ink);line-height:1;white-space:nowrap;}
@@ -33,13 +33,13 @@
   .meta-strip span strong{color:var(--ink);font-weight:500;}
   a[href^="mailto:"]{color:var(--rust);text-decoration:none;border-bottom:1px solid currentColor;transition:color .15s;}
   a[href^="mailto:"]:hover{color:var(--rust-deep);}
-  .hero{padding:80px 0 64px;border-bottom:1px solid var(--hairline);}
+  .hero{padding:80px 0 64px;border-bottom:1px solid rgba(44,47,53,0.08);}
   .eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--rust);margin-bottom:24px;}
-  h1.title{font-family:var(--display);font-weight:700;font-size:clamp(56px,9vw,112px);line-height:.95;letter-spacing:-.045em;margin-bottom:32px;color:var(--ink);}
+  h1.title{font-family:var(--display);font-weight:800;font-size:clamp(56px,9vw,112px);line-height:.95;letter-spacing:-.045em;margin-bottom:32px;color:var(--ink);}
   h1.title em{font-style:normal;font-weight:300;color:var(--rust);}
   .lead{font-size:21px;line-height:1.45;font-weight:400;color:var(--ink-mute);max-width:720px;letter-spacing:-.005em;}
   .lead em{font-style:normal;color:var(--rust);font-weight:500;}
-  .status-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--hairline);background:var(--surface);}
+  .status-strip{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(44,47,53,0.06);overflow:hidden;margin:32px auto 0;max-width:1180px;}
   .status-cell{padding:24px 28px;border-right:1px solid var(--hairline);}
   .status-cell:last-child{border-right:none;}
   .status-value{font-family:var(--display);font-size:44px;font-weight:500;line-height:1;letter-spacing:-.03em;color:var(--ink);margin-bottom:4px;}
@@ -48,14 +48,14 @@
   .status-value.warn{color:var(--amber);}
   .status-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-faint);}
   section{padding:72px 0 32px;}
-  .section-head{margin-bottom:40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;border-bottom:1.5px solid var(--ink);padding-bottom:20px;}
-  h2.section-title{font-family:var(--display);font-weight:600;font-size:38px;line-height:1.05;letter-spacing:-.035em;}
+  .section-head{margin-bottom:40px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;border-bottom:1px solid rgba(44,47,53,0.12);padding-bottom:20px;}
+  h2.section-title{font-family:var(--display);font-weight:800;font-size:38px;line-height:1.05;letter-spacing:-.035em;}
   h2.section-title em{font-style:normal;font-weight:300;color:var(--rust);}
   .section-count{font-family:var(--mono);font-size:12px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.12em;}
   .section-count strong{color:var(--rust);font-weight:700;}
   /* NEEDS */
   .needs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .need-card{border:1px solid var(--hairline);background:var(--surface);padding:26px 28px 24px;display:flex;flex-direction:column;gap:14px;position:relative;}
+  .need-card{background:#fff;border-radius:18px;box-shadow:0 2px 12px rgba(44,47,53,0.06),0 1px 3px rgba(44,47,53,0.03);padding:26px 28px 24px;display:flex;flex-direction:column;gap:14px;position:relative;}
   .need-num{position:absolute;top:22px;right:26px;font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.06em;font-weight:700;}
   .need-tag{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--rust);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--hairline-soft);}
   .need-title{font-family:var(--display);font-weight:500;font-size:22px;line-height:1.15;letter-spacing:-.025em;color:var(--ink);}
@@ -63,24 +63,24 @@
   .need-target{font-size:13.5px;color:var(--ink-mute);line-height:1.5;}
   .need-target strong{color:var(--ink);font-weight:600;font-family:var(--mono);font-size:13px;background:var(--paper-deep);padding:1px 6px;}
   .need-action{font-size:13px;color:var(--ink-mute);line-height:1.55;margin-top:auto;padding-top:12px;border-top:1px dashed var(--hairline);}
-  .need-card.open{border-color:var(--rust);border-width:1.5px;}
+  .need-card.open{box-shadow:0 0 0 1.5px var(--rust),0 4px 16px rgba(91,143,116,0.12);}
   .need-card.open .need-tag::before{content:'● ';}
-  .need-card.done{background:rgba(78,106,58,.05);border-color:rgba(78,106,58,.25);}
+  .need-card.done{background:rgba(91,143,116,.06);border-color:rgba(78,106,58,.25);}
   .need-card.done .need-tag{color:var(--sage);border-bottom-color:rgba(78,106,58,.2);}
   .need-card.done .need-tag::before{content:'✓ ';font-weight:700;}
   .need-card.done .need-title,.need-card.done .need-title em{color:var(--ink-mute);}
   .need-card.done .need-target,.need-card.done .need-action{color:var(--ink-faint);}
   /* AUDIT CARDS */
   .audit-grid{display:grid;grid-template-columns:1fr;gap:24px;}
-  .audit-card{border:1px solid var(--hairline);background:var(--surface);transition:all .18s;overflow:hidden;text-decoration:none;color:inherit;display:grid;grid-template-columns:220px 1fr auto;align-items:stretch;}
-  .audit-card:hover{background:var(--paper-deep);border-color:var(--ink);transform:translateY(-2px);box-shadow:0 4px 16px rgba(28,24,20,.08);}
+  .audit-card{background:#fff;border-radius:20px;box-shadow:0 2px 16px rgba(44,47,53,0.07),0 1px 4px rgba(44,47,53,0.04);transition:all .2s;overflow:hidden;text-decoration:none;color:inherit;display:grid;grid-template-columns:220px 1fr auto;align-items:stretch;}
+  .audit-card:hover{background:#fff;transform:translateY(-3px);box-shadow:0 8px 32px rgba(44,47,53,0.12),0 2px 8px rgba(44,47,53,0.06);}
   .audit-card:hover .audit-arrow{transform:translateX(4px);}
-  .audit-num-block{background:var(--ink);color:var(--paper);padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
-  .audit-num-block::before{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(164,67,24,.35) 0,transparent 70%);pointer-events:none;}
-  .audit-num{font-family:var(--display);font-size:88px;font-weight:500;line-height:.85;letter-spacing:-.06em;color:#d68a4f;position:relative;z-index:1;}
+  .audit-num-block{background:var(--ink);color:var(--paper);padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;border-radius:20px 0 0 20px;}
+  .audit-num-block::before{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(91,143,116,.35) 0,transparent 70%);pointer-events:none;}
+  .audit-num{font-family:var(--display);font-size:88px;font-weight:500;line-height:.85;letter-spacing:-.06em;color:#7da977;position:relative;z-index:1;}
   .audit-num-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:rgba(245,235,200,.6);margin-bottom:8px;position:relative;z-index:1;}
   .audit-pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px;position:relative;z-index:1;}
-  .audit-pill{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;padding:3px 8px;font-weight:600;border-radius:2px;}
+  .audit-pill{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;padding:4px 10px;font-weight:700;border-radius:9999px;}
   .audit-pill.live{background:var(--sage);color:var(--paper);}
   .audit-pill.draft{background:var(--amber);color:var(--paper);}
   .audit-content{padding:28px 32px;display:flex;flex-direction:column;justify-content:center;}
@@ -93,9 +93,9 @@
   .audit-meta span strong{color:var(--ink);font-weight:500;margin-right:4px;}
   .audit-arrow{padding:28px 32px;display:flex;align-items:center;transition:transform .18s;}
   .audit-arrow svg{width:28px;height:28px;color:var(--ink);}
-  .for-line{font-family:var(--mono);font-size:12px;color:var(--ink-mute);margin-top:48px;padding:16px 22px;background:var(--surface);border-left:3px solid var(--rust);line-height:1.6;}
+  .for-line{font-family:var(--mono);font-size:12px;color:var(--ink-mute);margin-top:48px;padding:16px 22px;background:#fff;border-radius:12px;border-left:3px solid var(--rust);box-shadow:0 1px 6px rgba(44,47,53,0.05);line-height:1.6;}
   .for-line strong{color:var(--ink);}
-  footer.colophon{margin-top:80px;padding:48px 0 56px;border-top:1px solid var(--hairline);font-family:var(--mono);font-size:11px;color:var(--ink-faint);}
+  footer.colophon{margin-top:80px;padding:48px 0 56px;border-top:1px solid rgba(44,47,53,0.08);font-family:var(--mono);font-size:11px;color:var(--ink-faint);}
   .colophon-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
   @media(max-width:880px){
     .container{padding:0 24px;}
@@ -106,7 +106,7 @@
     .audit-content{padding:24px;}
     .audit-arrow{padding:16px 24px;justify-content:flex-end;}
     .status-strip{grid-template-columns:1fr 1fr;}
-    .status-cell{border-right:1px solid var(--hairline);border-bottom:1px solid var(--hairline);}
+    .status-cell{border-right:1px solid var(--hairline);border-bottom:1px solid rgba(44,47,53,0.08);}
     .status-cell:nth-child(2n){border-right:none;}
     .status-cell:nth-last-child(-n+2){border-bottom:none;}
     .section-head{grid-template-columns:1fr;}
@@ -160,10 +160,25 @@
   </div>
 </div>
 
-<section>
+<section style="padding:40px 0 0;">
   <div class="container">
-    <div class="section-head">
-      <h2 class="section-title">Otevřené <em>potřeby</em></h2>
+    <div style="background:#2c2f35;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;padding:32px 40px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.18em;color:#7da977;font-weight:700;margin-bottom:10px;">Externí zdroj · handsonweb.online</div>
+        <div style="font-family:'Manrope','Helvetica Neue',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.03em;color:#eef6ec;margin-bottom:8px;">MY CLINIC — <span style="font-weight:300;color:#9fc69a;">AI Audit</span></div>
+        <div style="font-size:14px;color:#74777e;line-height:1.55;max-width:560px;">Kompletní audit viditelnosti myclinic.cz v AI systémech (ChatGPT, Gemini, Perplexity). Analýza citací, share of voice, entity coverage a doporučení pro GEO optimalizaci — vstupní podklad pro SEO briefy.</div>
+      </div>
+      <a href="https://handsonweb.online/reports/myclinic.cz/" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:10px;background:#9fc69a;color:#2c2f35;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;padding:14px 24px;text-decoration:none;white-space:nowrap;transition:filter .15s;"
+         onmouseover="this.style.filter='brightness(1.08)'" onmouseout="this.style.filter='none'">
+        Otevřít audit
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
       <div class="section-count"><strong>2</strong> OTEVŘENÉ · 1 VYŘÍZENO</div>
     </div>
     <div class="needs-grid">
