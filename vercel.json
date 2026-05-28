@@ -56,5 +56,22 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/brief-01-kw-analyza",
+      "destination": "/brief-advertorial/klicova-slova",
+      "permanent": true
+    },
+    {
+      "source": "/brief-02-seo-ai-audit",
+      "destination": "/brief-advertorial/struktura",
+      "permanent": true
+    },
+    {
+      "source": "/brief-03-rozsirene-zadani",
+      "destination": "/brief-advertorial/finalni-brief",
+      "permanent": true
+    }
   ]
 }

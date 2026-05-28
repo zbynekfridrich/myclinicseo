@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<title>Brief 01 — KW analýza advertoriálů · MY CLINIC · Zbyněk Fridrich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #dce8de;
+    --paper-deep:   #c4e0bf;
+    --paper-darker: #b5d4b0;
+    --surface:      #eef6ec;
+    --ink:          #2c2f35;
+    --ink-mute:     #595b63;
+    --ink-faint:    #74777e;
+    --hairline:     #bdd4ba;
+    --hairline-soft:#cde3ca;
+    --rust:         #5b8f74;
+    --rust-deep:    #3d6b55;
+    --sage:         #7da977;
+    --amber:        #a88a5c;
+    --oxblood:      #5b8f74;
+    --mc-primary:   #9fc69a;
+    --display:      'Manrope', 'Helvetica Neue', sans-serif;
+    --sans:         'Inter', system-ui, sans-serif;
+    --mono:         'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.55;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-image:
+      radial-gradient(at 12% 8%, rgba(91,143,116,0.07) 0, transparent 40%),
+      radial-gradient(at 88% 92%, rgba(159,198,154,0.08) 0, transparent 44%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+
+  /* ─── MASTHEAD ─────────────────────────────── */
+  .masthead { border-bottom: 2px solid var(--ink); padding: 24px 0 20px; }
+  .masthead-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  
+  .brand-wordmark {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .brand-sub { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-mute); padding-left: 16px; border-left: 1px solid var(--hairline); }
+  .meta-strip { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); display: flex; gap: 18px; flex-wrap: wrap; }
+  .meta-strip span strong { color: var(--ink); font-weight: 500; }
+
+  a[href^="mailto:"] { color: var(--rust); text-decoration: none; border-bottom: 1px solid currentColor; transition: color 0.15s ease; }
+  a[href^="mailto:"]:hover { color: var(--rust-deep); }
+  a.back-link { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-mute); text-decoration: none; border-bottom: none; display: inline-flex; align-items: center; gap: 6px; padding: 0; transition: color 0.15s ease; }
+  a.back-link:hover { color: var(--ink); border-bottom: none; }
+  a.back-link svg { width: 14px; height: 14px; }
+
+  /* ─── HERO ─────────────────────────────────── */
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid rgba(44,47,53,0.08); }
+  .hero-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--rust); }
+  h1.title { font-family: var(--display); font-weight: 700; font-size: clamp(48px, 7vw, 96px); line-height: 0.95; letter-spacing: -0.045em; margin-bottom: 32px; color: var(--ink); }
+  h1.title em { font-style: normal; font-weight: 300; color: var(--rust); }
+  .lead { font-family: var(--sans); font-size: 19px; line-height: 1.5; font-weight: 400; color: var(--ink-mute); max-width: 760px; letter-spacing: -0.005em; }
+  .lead em { font-style: normal; color: var(--rust); font-weight: 500; }
+  .lead strong { color: var(--ink); font-weight: 600; }
+
+  /* ─── STATUS STRIP ─────────────────────────── */
+  .status-strip { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid rgba(44,47,53,0.08); background: var(--surface); }
+  .status-cell { padding: 24px 28px; border-right: 1px solid var(--hairline); }
+  .status-cell:last-child { border-right: none; }
+  .status-value { font-family: var(--display); font-size: 44px; font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 4px; }
+  .status-value.accent { color: var(--rust); }
+  .status-value.go    { color: var(--sage); }
+  .status-value.warn  { color: var(--amber); }
+  .status-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-faint); }
+
+  /* ─── SECTION ──────────────────────────────── */
+  section { padding: 72px 0 32px; }
+  section + section { padding-top: 48px; }
+  .section-head { margin-bottom: 40px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: baseline; border-bottom: 1.5px solid var(--ink); padding-bottom: 20px; }
+  h2.section-title { font-family: var(--display); font-weight: 800; font-size: 38px; line-height: 1.05; letter-spacing: -0.035em; }
+  h2.section-title em { font-style: normal; font-weight: 300; color: var(--rust); }
+  .section-count { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.12em; }
+  .section-count strong { color: var(--rust); font-weight: 700; }
+
+  /* ─── CLUSTER OVERVIEW GRID ────────────────── */
+  .cluster-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .cluster-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cluster-card {
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+    padding: 22px 24px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cluster-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .cluster-card.c-nav::after   { background: var(--sage); }
+  .cluster-card.c-ocp::after   { background: var(--amber); }
+  .cluster-card.c-prev::after  { background: var(--oxblood); }
+  .cluster-card.c-novo::after  { background: var(--rust); }
+  .cluster-card.c-other::after { background: var(--ink-faint); }
+
+  .cluster-letter {
+    font-family: var(--display);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin-bottom: 6px;
+    opacity: 0.12;
+    position: absolute;
+    top: 8px; right: 16px;
+  }
+  .c-nav .cluster-letter   { color: var(--sage); }
+  .c-ocp .cluster-letter   { color: var(--amber); }
+  .c-prev .cluster-letter  { color: var(--oxblood); }
+  .c-novo .cluster-letter  { color: var(--rust); }
+  .c-other .cluster-letter { color: var(--ink); }
+
+  .cluster-tag { font-family: var(--mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; margin-bottom: 8px; }
+  .c-nav .cluster-tag   { color: var(--sage); }
+  .c-ocp .cluster-tag   { color: var(--amber); }
+  .c-prev .cluster-tag  { color: var(--oxblood); }
+  .c-novo .cluster-tag  { color: var(--rust); }
+  .c-other .cluster-tag { color: var(--ink-faint); }
+
+  .cluster-name { font-family: var(--display); font-weight: 600; font-size: 18px; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--ink); }
+  .cluster-gsv { font-family: var(--display); font-size: 34px; font-weight: 500; letter-spacing: -0.03em; margin-bottom: 2px; }
+  .c-nav .cluster-gsv   { color: var(--sage); }
+  .c-ocp .cluster-gsv   { color: var(--amber); }
+  .c-prev .cluster-gsv  { color: var(--oxblood); }
+  .c-novo .cluster-gsv  { color: var(--rust); }
+  .c-other .cluster-gsv { color: var(--ink-faint); }
+  .cluster-gsv-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-faint); margin-bottom: 12px; }
+  .cluster-action {
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    line-height: 1.5;
+    padding-top: 10px;
+    border-top: 1px dashed var(--hairline);
+    margin-top: auto;
+  }
+  .cluster-action strong { color: var(--ink); font-weight: 600; }
+  .cluster-kw-count { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); margin-bottom: 12px; }
+
+  /* ─── INSIGHT BOX ──────────────────────────── */
+  .insight {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--amber);
+    padding: 20px 24px;
+    margin: 32px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-mute);
+  }
+  .insight.green  { border-left-color: var(--sage); }
+  .insight.red    { border-left-color: var(--rust); }
+  .insight.black  { border-left-color: var(--ink); }
+  .insight .insight-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+  .insight.green .insight-label { color: var(--sage); }
+  .insight.red   .insight-label { color: var(--rust); }
+  .insight.black .insight-label { color: var(--ink); }
+  .insight strong { color: var(--ink); font-weight: 600; }
+
+  /* ─── KW TABLE ─────────────────────────────── */
+  .kw-section { margin-bottom: 56px; }
+  .kw-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    margin-bottom: 0;
+  }
+  .kw-section-header.c-nav   { background: rgba(91,143,116,0.10); border: 1px solid rgba(91,143,116,0.2); }
+  .kw-section-header.c-ocp   { background: rgba(168,138,92,0.08); border: 1px solid rgba(168,138,92,0.25); }
+  .kw-section-header.c-prev  { background: rgba(159,198,154,0.10); border: 1px solid rgba(91,143,116,0.15); }
+  .kw-section-header.c-novo  { background: rgba(91,143,116,0.07); border: 1px solid rgba(91,143,116,0.18); }
+  .kw-section-header.c-other { background: rgba(28,24,20,0.05); border: 1px solid var(--hairline); }
+
+  .kw-cluster-title { font-family: var(--display); font-weight: 600; font-size: 22px; letter-spacing: -0.025em; color: var(--ink); }
+  .kw-cluster-title em { font-style: normal; font-weight: 300; }
+  .c-nav  .kw-cluster-title em { color: var(--sage); }
+  .c-ocp  .kw-cluster-title em { color: var(--amber); }
+  .c-prev .kw-cluster-title em { color: var(--oxblood); }
+  .c-novo .kw-cluster-title em { color: var(--rust); }
+  .kw-cluster-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); text-align: right; }
+  .kw-cluster-meta strong { color: var(--ink); }
+
+  .kw-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--hairline); border-top: none; }
+  .kw-table th {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    font-weight: 600;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(44,47,53,0.08);
+    background: var(--paper-deep);
+  }
+  .kw-table td {
+    padding: 11px 16px;
+    font-size: 13.5px;
+    color: var(--ink-mute);
+    border-bottom: 1px solid var(--hairline-soft);
+    vertical-align: middle;
+  }
+  .kw-table tr:last-child td { border-bottom: none; }
+  .kw-table tr:hover td { background: var(--paper-deep); }
+
+  .kw-word { font-family: var(--sans); font-weight: 500; color: var(--ink); font-size: 13.5px; }
+  .kw-vol { font-family: var(--mono); font-weight: 700; color: var(--ink); font-size: 13px; white-space: nowrap; }
+  .kw-vol-wrap { min-width: 80px; }
+
+  .vol-bar {
+    height: 3px;
+    background: var(--hairline);
+    margin-top: 4px;
+    position: relative;
+    width: 80px;
+  }
+  .vol-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: var(--w, 3%);
+    background: var(--rust);
+    opacity: 0.7;
+  }
+  .c-nav  .vol-bar::after { background: var(--sage); }
+  .c-ocp  .vol-bar::after { background: var(--amber); }
+  .c-prev .vol-bar::after { background: var(--oxblood); }
+  .c-novo .vol-bar::after { background: var(--rust); }
+
+  /* intent badges */
+  .intent {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 2px 6px;
+    font-weight: 700;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .intent.inf  { background: rgba(176,121,20,0.13); color: var(--amber);   border: 1px solid rgba(168,138,92,0.3); }
+  .intent.nav  { background: rgba(91,143,116,0.14);  color: var(--sage);    border: 1px solid rgba(91,143,116,0.3); }
+  .intent.tra  { background: rgba(91,143,116,0.15);  color: var(--rust);    border: 1px solid rgba(91,143,116,0.3); }
+  .intent.mix  { background: rgba(91,143,116,0.08); color: var(--rust);    border: 1px solid rgba(91,143,116,0.25); }
+
+  /* priority badges */
+  .prio {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 2px 6px;
+    font-weight: 600;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .prio.high { background: rgba(91,143,116,0.12); color: var(--rust); }
+  .prio.mid  { background: rgba(168,138,92,0.12); color: var(--amber); }
+  .prio.low  { background: rgba(28,24,20,0.06); color: var(--ink-faint); }
+
+  /* sub-group row in table */
+  .kw-subgroup {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    background: var(--paper-deeper, #e9e0cc) !important;
+    border-bottom: 1px solid var(--hairline) !important;
+  }
+  .kw-subgroup td { padding: 7px 16px !important; font-size: 9.5px; background: var(--paper-deeper, #e8dfc8); color: var(--ink-faint); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.12em; }
+
+  /* ─── SEO REC CARDS ─────────────────────────── */
+  .rec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .rec-card {
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .rec-card-head {
+    background: var(--ink);
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .rec-card-head::before {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 100px; height: 100px;
+    background: radial-gradient(circle, rgba(91,143,116,0.3) 0, transparent 70%);
+  }
+  .rec-num { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(245,235,200,0.5); margin-bottom: 4px; }
+  .rec-title { font-family: var(--display); font-weight: 600; font-size: 20px; line-height: 1.15; letter-spacing: -0.025em; color: var(--paper); }
+  .rec-title em { font-style: normal; font-weight: 300; color: #7da977; }
+  .rec-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+
+  .rec-field { display: flex; flex-direction: column; gap: 4px; }
+  .rec-field-label { font-family: var(--mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint); font-weight: 600; }
+  .rec-field-value { font-size: 13.5px; color: var(--ink); line-height: 1.5; }
+  .rec-field-value code { font-family: var(--mono); font-size: 12.5px; background: var(--paper-deep); padding: 2px 6px; color: var(--rust); }
+  .rec-field-value strong { font-weight: 600; }
+
+  .rec-kw-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+  .rec-kw {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--paper-deep);
+    padding: 3px 8px;
+    color: var(--ink-mute);
+    border: 1px solid var(--hairline);
+  }
+  .rec-kw.primary { background: rgba(91,143,116,0.12); color: var(--rust); border-color: rgba(91,143,116,0.35); font-weight: 700; }
+  .rec-kw.secondary { background: var(--paper-deep); color: var(--ink-mute); }
+
+  .rec-divider { border: none; border-top: 1px dashed var(--hairline); }
+
+  /* ─── CONTENT GAP ──────────────────────────── */
+  .gap-box {
+    background: rgba(91,143,116,0.04);
+    border: 1.5px solid rgba(91,143,116,0.25);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+  }
+  .gap-box-head { font-family: var(--display); font-weight: 600; font-size: 22px; letter-spacing: -0.025em; margin-bottom: 16px; color: var(--ink); }
+  .gap-box-head em { font-style: normal; font-weight: 300; color: var(--oxblood); }
+  .gap-box-body { font-size: 14px; line-height: 1.65; color: var(--ink-mute); }
+  .gap-box-body strong { color: var(--ink); font-weight: 600; }
+  .gap-kw-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .gap-kw { font-family: var(--mono); font-size: 11px; padding: 4px 10px; background: var(--paper-deep); border: 1px dashed var(--hairline); color: var(--ink-faint); }
+
+  /* ─── ACTION STEPS ─────────────────────────── */
+  .action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .action-card { border: 1px solid var(--hairline); background: var(--surface); padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; position: relative; }
+  .action-step { position: absolute; top: 20px; right: 22px; font-family: var(--mono); font-size: 28px; font-weight: 700; color: var(--hairline); letter-spacing: -0.05em; line-height: 1; }
+  .action-tag { font-family: var(--mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--rust); font-weight: 600; }
+  .action-title { font-family: var(--display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.02em; color: var(--ink); padding-right: 32px; }
+  .action-desc { font-size: 13px; color: var(--ink-mute); line-height: 1.55; }
+  .action-owner { font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); padding-top: 10px; border-top: 1px dashed var(--hairline); margin-top: auto; }
+  .action-owner strong { color: var(--ink); font-weight: 500; }
+
+  /* ─── FOR-LINE ─────────────────────────────── */
+  .for-line { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); margin-top: 40px; padding: 16px 22px; background: var(--surface); border-left: 3px solid var(--rust); line-height: 1.6; }
+  .for-line strong { color: var(--ink); }
+  .for-line code { background: var(--paper-deep); padding: 1px 5px; font-family: var(--mono); font-size: 0.9em; }
+
+  /* ─── FOOTER ───────────────────────────────── */
+  footer.colophon { margin-top: 80px; padding: 48px 0 56px; border-top: 1px solid var(--hairline); font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+  .colophon-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+  /* ─── RESPONSIVE ───────────────────────────── */
+  @media (max-width: 960px) {
+    .rec-grid { grid-template-columns: 1fr; }
+    .cluster-grid { grid-template-columns: 1fr 1fr; }
+    .cluster-grid-2 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 880px) {
+    .container { padding: 0 24px; }
+    .hero { padding: 48px 0 40px; }
+    .status-strip { grid-template-columns: 1fr 1fr; }
+    .status-cell { border-right: 1px solid var(--hairline); border-bottom: 1px solid rgba(44,47,53,0.08); }
+    .status-cell:nth-child(2n) { border-right: none; }
+    .status-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .section-head { grid-template-columns: 1fr; }
+    .cluster-grid { grid-template-columns: 1fr; }
+    .action-grid { grid-template-columns: 1fr; }
+    .kw-table { font-size: 12px; }
+    .kw-table th, .kw-table td { padding: 8px 12px; }
+  }
+  @media print {
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── MASTHEAD ─────────────────────────────── -->
+<header class="masthead">
+  <div class="container masthead-inner">
+    <div class="brand">
+      <div class="brand-wordmark">Zbyněk Fridrich</div>
+      <span class="brand-sub">SEO konzultant</span>
+    </div>
+    <div class="meta-strip">
+      <span><a href="../../index.html" class="back-link" style="border-bottom:none;color:var(--ink-faint);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Dashboard
+      </a></span>
+      <span>KLIENT <strong>MY CLINIC</strong></span>
+      <span>BRIEF <strong>01 / 04</strong></span>
+      <span>AKTUALIZOVÁNO <strong>28. 5. 2026</strong></span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Brief 01 · SEO analýza klíčových slov · Advertoriální obsah</div>
+    <h1 class="title">KW analýza<br><em>advertoriálů</em></h1>
+    <p class="lead">
+      <strong>55 klíčových slov, 5 clusterů, 11 700 GSV.</strong>
+      Mapa keyword poolu pro tři plánované advertoriály MY CLINIC.
+      Klíčové zjištění: <em>56 % GSV leží v očkovacím clusteru</em>, který
+      není vhodný pro advertoriály — vyžaduje samostatné SEO články.
+      Advertoriálně adresovatelných je <em>3 942 + 467 GSV</em> ve dvou clusterech.
+      Advertoriál 03 (školka) nemá v datasetu pokrytí — je blokovaný.
+    </p>
+  </div>
+</section>
+
+<!-- ─── STATUS STRIP ─────────────────────────── -->
+<div class="status-strip">
+  <div class="status-cell">
+    <div class="status-value">55</div>
+    <div class="status-label">Klíčových slov</div>
+  </div>
+  <div class="status-cell">
+    <div class="status-value accent">11 700</div>
+    <div class="status-label">GSV celkem</div>
+  </div>
+  <div class="status-cell">
+    <div class="status-value warn">5</div>
+    <div class="status-label">Keyword clusterů</div>
+  </div>
+  <div class="status-cell">
+    <div class="status-value go">2</div>
+    <div class="status-label">Advertoriály pokryty daty</div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: CLUSTER PŘEHLED ───────────── -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Mapa <em>keyword clusterů</em></h2>
+      <div class="section-count"><strong>5</strong> CLUSTERŮ · 11 700 GSV CELKEM</div>
+    </div>
+
+    <div class="cluster-grid">
+
+      <!-- CLUSTER A -->
+      <div class="cluster-card c-nav">
+        <div class="cluster-letter">A</div>
+        <div class="cluster-tag">Cluster A · Navigační</div>
+        <div class="cluster-name">Hledám pediatra</div>
+        <div class="cluster-gsv">3 942</div>
+        <div class="cluster-gsv-label">GSV / měsíc · 24 KW</div>
+        <div class="cluster-kw-count">obecné + Praha + Praha 6 + soukromý</div>
+        <div class="cluster-action"><strong>→ Advertoriál 01</strong> — Týmová péče. Navigační a transakční intent. Nejvyšší konverze pro MY CLINIC.</div>
+      </div>
+
+      <!-- CLUSTER B -->
+      <div class="cluster-card c-ocp">
+        <div class="cluster-letter">B</div>
+        <div class="cluster-tag">Cluster B · Informační ⚡</div>
+        <div class="cluster-name">Očkování</div>
+        <div class="cluster-gsv">6 559</div>
+        <div class="cluster-gsv-label">GSV / měsíc · 8 KW</div>
+        <div class="cluster-kw-count">hexavakcína, MMR, očkování dětí, plané neštovice</div>
+        <div class="cluster-action"><strong>→ Samostatné SEO články</strong> — NOT advertoriály. Velká organická příležitost. Vyžaduje vlastní URL strukturu na myclinic.cz.</div>
+      </div>
+
+      <!-- CLUSTER C -->
+      <div class="cluster-card c-prev">
+        <div class="cluster-letter">C</div>
+        <div class="cluster-tag">Cluster C · Informační</div>
+        <div class="cluster-name">Preventivní prohlídky</div>
+        <div class="cluster-gsv">690</div>
+        <div class="cluster-gsv-label">GSV / měsíc · 15 KW</div>
+        <div class="cluster-kw-count">věkové prohlídky 5, 13, 15, 17 let + obecné</div>
+        <div class="cluster-action"><strong>→ SEO poradna / blog</strong> — calendar-based obsah pro budování důvěry. Nízká přímá konverze, vysoká hodnota audience.</div>
+      </div>
+
+    </div>
+
+    <div class="cluster-grid-2" style="margin-top:16px;">
+
+      <!-- CLUSTER D -->
+      <div class="cluster-card c-novo">
+        <div class="cluster-letter">D</div>
+        <div class="cluster-tag">Cluster D · Symptomový</div>
+        <div class="cluster-name">Novorozenci &amp; screening</div>
+        <div class="cluster-gsv">467</div>
+        <div class="cluster-gsv-label">GSV / měsíc · 7 KW</div>
+        <div class="cluster-kw-count">novorozenecký screening, šišatá hlava, sluch, první očkování</div>
+        <div class="cluster-action"><strong>→ Advertoriál 02</strong> — Novorozenci. Symptomové dotazy úzkostných rodičů. Vysoká relevance, nízká konkurence.</div>
+      </div>
+
+      <!-- CLUSTER E -->
+      <div class="cluster-card c-other">
+        <div class="cluster-letter">E</div>
+        <div class="cluster-tag">Cluster E · Ostatní</div>
+        <div class="cluster-name">Příčiny nemocí</div>
+        <div class="cluster-gsv">40</div>
+        <div class="cluster-gsv-label">GSV / měsíc · 1 KW</div>
+        <div class="cluster-kw-count">nemoc hlava ruce nohy (syndrom HFM)</div>
+        <div class="cluster-action"><strong>→ Edukační obsah</strong> — lze zmínit v advertoriálu pro školku jako konkrétní příklad. Vhodný i pro standalone poradnu.</div>
+      </div>
+
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">⚡ Klíčové zjištění — distribuce GSV</div>
+      <strong>56 % celkového GSV leží v očkovacím clusteru (6 559 GSV)</strong>, který je informační a kompetitivní —
+      zdravotní portály (ZdravíNEBO, Modré stránky, WikiSkripta) drží top pozice. Tyto keywords
+      <strong>nejsou vhodné jako primární target pro advertoriály</strong>, ale jsou velkou
+      SEO příležitostí pro dedicated informační články na myclinic.cz (/poradna/ockovani/).
+      Advertoriálně relevantní je 4 409 GSV ve dvou clusterech (A + D).
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 2: KW TABULKY ──────────────── -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Detailní <em>keyword tabulky</em></h2>
+      <div class="section-count">INTENT · PRIORITA · MAPOVÁNÍ</div>
+    </div>
+
+    <!-- ─── CLUSTER A ─── -->
+    <div class="kw-section">
+      <div class="kw-section-header c-nav">
+        <div class="kw-cluster-title c-nav">Cluster A — <em>Hledám pediatra</em></div>
+        <div class="kw-cluster-meta">24 KW &nbsp;·&nbsp; <strong>3 942 GSV</strong> &nbsp;·&nbsp; → Advertoriál 01</div>
+      </div>
+      <table class="kw-table c-nav">
+        <thead>
+          <tr>
+            <th>Klíčové slovo</th>
+            <th>GSV / měs.</th>
+            <th>Intent</th>
+            <th>Priorita</th>
+            <th>Poznámka</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="kw-subgroup"><td colspan="5">Obecné — bez geo</td></tr>
+          <tr>
+            <td><span class="kw-word">pediatr</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">1 648</span><div class="vol-bar c-nav" style="--w: 54%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Broad; vysoká konkurence. Vhodný jako sekundární KW.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">pediatrie</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">616</span><div class="vol-bar c-nav" style="--w: 20%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Kategoriový dotaz. Sekundární KW.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dětský lékař</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">350</span><div class="vol-bar c-nav" style="--w: 11%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Synonymum „pediatr". Zahrnout v textu.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">detsky lekar</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">159</span><div class="vol-bar c-nav" style="--w: 5%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Diakritická varianta. Pokryta automaticky.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">detsky pediatr</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">100</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Varianta bez diakritiky.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dětská doktorka</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">99</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Femininum — ukazuje na hledání dle pohlaví lékaře.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">detsky doktor</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">82</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Varianta bez diakritiky. Pokryta automaticky.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dětský pediatr</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">82</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Redundantní spojení; hledají zejm. rodiče.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dětský praktický lékař</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">80</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Formální označení. Zahrnout v textu.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">lékař pro děti a dorost</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">80</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Pokrývá starší děti. Relevantní pro MY CLINIC.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dětské lékařství</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">55</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Obor. Sekundární KW.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">lekar pro deti</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">31</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Diakritická varianta.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">akutní stavy v pediatrii</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">20</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Informační. Vhodné zmínit v kontextu akutní péče.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dětská pediatrie / klinická pediatrie</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">20+20</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Oborové dotazy. Sekundárně pokryté.</td>
+          </tr>
+
+          <tr class="kw-subgroup"><td colspan="5">Praha — navigační + lokální</td></tr>
+          <tr>
+            <td><span class="kw-word">dětský lékař Praha 6</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">90</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent tra">TRA</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Lokální s konkrétní MČ. Nejsilnější KW pro MY CLINIC.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">pediatr Praha</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">164</span><div class="vol-bar c-nav" style="--w: 5%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Lokální Praha. Hlavní lokální KW.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">pediatr Praha 6</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">55</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent tra">TRA</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Nejpřesnější geo. Primární KW pro advertoriál.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">pediatr Praha 6 Dejvice</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">20</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent tra">TRA</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Hyper-lokální. Velmi nízká konkurence, vysoká konverze.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dětský lékař Praha</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">65</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Synonymum „pediatr Praha".</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">detsky lekar Praha / detsky lekar Praha 6</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">54+31</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent nav">NAV</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Diakritické varianty. Pokryty automaticky.</td>
+          </tr>
+
+          <tr class="kw-subgroup"><td colspan="5">Soukromý — transakční</td></tr>
+          <tr>
+            <td><span class="kw-word">soukromý pediatr Praha</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">21</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent tra">TRA</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Nejsilnější transakční KW. Explicitně vyjadřuje záměr. Primární pro advertoriál.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">soukromá pediatrie Praha</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">20</span><div class="vol-bar c-nav" style="--w: 3%"></div></td>
+            <td><span class="intent tra">TRA</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Oborový transakční variant. Primární pro advertoriál.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ─── CLUSTER B ─── -->
+    <div class="kw-section">
+      <div class="kw-section-header c-ocp">
+        <div class="kw-cluster-title c-ocp">Cluster B — <em>Očkování</em> &nbsp;⚡ velká SEO příležitost</div>
+        <div class="kw-cluster-meta">8 KW &nbsp;·&nbsp; <strong>6 559 GSV</strong> &nbsp;·&nbsp; → Samostatné SEO články</div>
+      </div>
+      <table class="kw-table c-ocp">
+        <thead>
+          <tr>
+            <th>Klíčové slovo</th>
+            <th>GSV / měs.</th>
+            <th>Intent</th>
+            <th>Priorita</th>
+            <th>Doporučená URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="kw-word">hexavakcína</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">3 079</span><div class="vol-bar c-ocp" style="--w: 100%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td><code style="font-family:var(--mono);font-size:11px;">/poradna/hexavakcina</code></td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">mmr vakcína</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">1 256</span><div class="vol-bar c-ocp" style="--w: 41%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td><code style="font-family:var(--mono);font-size:11px;">/poradna/mmr-vakcina</code></td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">očkování mmr / mmr očkování</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">793 + 751</span><div class="vol-bar c-ocp" style="--w: 50%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Varianta URL s přesměrováním na /poradna/mmr-vakcina</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">očkování dětí</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">576</span><div class="vol-bar c-ocp" style="--w: 19%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td><code style="font-family:var(--mono);font-size:11px;">/poradna/ockovani-deti</code> (hub)</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dětské očkování</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">62</span><div class="vol-bar c-ocp" style="--w: 3%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Synonymum pro hub /poradna/ockovani-deti</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">první očkování novorozence</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">20</span><div class="vol-bar c-ocp" style="--w: 3%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Překryv s Advertoriálem 02. Zahrnout do novorozeneckého textu.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">očkování plané neštovice cena</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">22</span><div class="vol-bar c-ocp" style="--w: 3%"></div></td>
+            <td><span class="intent mix">INF+TRA</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Transakční signál (cena). Standalone nebo část hubu.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="insight" style="margin-top:0;margin-bottom:0;border-top:none;">
+        <div class="insight-label">Proč cluster B NENÍ pro advertoriály</div>
+        Uživatelé hledající „hexavakcína" nebo „mmr vakcína" chtějí <strong>informace o vakcíně</strong>, ne kliniku.
+        Propagační obsah s CTA na registraci by neodpovídal jejich searchi — Google takové stránky
+        přirozeně sesazuje. Tyto keywords potřebují <strong>čistě informační SEO články</strong>
+        (co je vakcína, kdy se podává, vedlejší účinky, FAQ) s MY CLINIC jako autoritativním zdrojem.
+        Konverze přichází druhotně přes remarketing nebo interní link na registraci.
+      </div>
+    </div>
+
+    <!-- ─── CLUSTER C ─── -->
+    <div class="kw-section">
+      <div class="kw-section-header c-prev">
+        <div class="kw-cluster-title c-prev">Cluster C — <em>Preventivní prohlídky</em></div>
+        <div class="kw-cluster-meta">15 KW &nbsp;·&nbsp; <strong>690 GSV</strong> &nbsp;·&nbsp; → SEO poradna</div>
+      </div>
+      <table class="kw-table c-prev">
+        <thead>
+          <tr>
+            <th>Klíčové slovo</th>
+            <th>GSV / měs.</th>
+            <th>Intent</th>
+            <th>Priorita</th>
+            <th>Doporučená URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="kw-word">preventivní prohlídky u dětí</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">158</span><div class="vol-bar c-prev" style="--w: 23%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td><code style="font-family:var(--mono);font-size:11px;">/poradna/preventivni-prohlidky-deti</code></td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">preventivní prohlídka 13 let</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">70</span><div class="vol-bar c-prev" style="--w: 10%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Spoke pod hubem preventivních prohlídek.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">preventivní prohlídka v 15 / v 15 letech</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">70+31+30</span><div class="vol-bar c-prev" style="--w: 19%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Spoke nebo sekce v hubu.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">preventivní prohlídka v 17 / v 17 letech</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">60+21</span><div class="vol-bar c-prev" style="--w: 12%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Spoke nebo sekce v hubu.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">preventivní prohlídka v 5 letech</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">41</span><div class="vol-bar c-prev" style="--w: 6%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Spoke pro mladší děti. Relevantní i pro Advertoriál 02.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">povinné preventivní prohlídky dětí</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">40</span><div class="vol-bar c-prev" style="--w: 6%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Právní a praktický aspekt. Do hubu.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">15 letá / 13ti letá / 15ti letá preventivní prohlídka</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">40+20+20</span><div class="vol-bar c-prev" style="--w: 11%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Varianty — pokryty hubem.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dětské preventivní prohlídky</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">22</span><div class="vol-bar c-prev" style="--w: 3%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio low">Nízká</span></td>
+            <td>Synonymum pro hub.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">preventivní prohlídky dětí</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">47</span><div class="vol-bar c-prev" style="--w: 7%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Synonymum pro hub.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ─── CLUSTER D ─── -->
+    <div class="kw-section">
+      <div class="kw-section-header c-novo">
+        <div class="kw-cluster-title c-novo">Cluster D — <em>Novorozenci &amp; screening</em></div>
+        <div class="kw-cluster-meta">7 KW &nbsp;·&nbsp; <strong>467 GSV</strong> &nbsp;·&nbsp; → Advertoriál 02</div>
+      </div>
+      <table class="kw-table c-novo">
+        <thead>
+          <tr>
+            <th>Klíčové slovo</th>
+            <th>GSV / měs.</th>
+            <th>Intent</th>
+            <th>Priorita</th>
+            <th>Poznámka</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="kw-word">novorozenecký screening</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">195</span><div class="vol-bar c-novo" style="--w: 42%"></div></td>
+            <td><span class="intent mix">INF+TRA</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Primární KW pro Advertoriál 02. Rodiče hledají kde screening provést.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">sisata hlava u miminka / šišatá hlava u miminka</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">80 + 30</span><div class="vol-bar c-novo" style="--w: 24%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Úzkostný rodič. Silná emocionální relevance pro advertoriál — MY CLINIC jako uklidnění.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">dolichocefalická hlava</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">70</span><div class="vol-bar c-novo" style="--w: 15%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio high">Vysoká</span></td>
+            <td>Lékařský termín — rodič, který už konzultoval nebo četl. Vysoká kvalita návštěvníka.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">placatá hlava u miminka / placatá hlava</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">50 + 22</span><div class="vol-bar c-novo" style="--w: 15%"></div></td>
+            <td><span class="intent inf">INF</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Plagiocefalie — fyzioterapeut / rehabilitace v MY CLINIC relevantní.</td>
+          </tr>
+          <tr>
+            <td><span class="kw-word">screening sluchu u novorozenců</span></td>
+            <td class="kw-vol-wrap"><span class="kw-vol">20</span><div class="vol-bar c-novo" style="--w: 4%"></div></td>
+            <td><span class="intent mix">INF+TRA</span></td>
+            <td><span class="prio mid">Střední</span></td>
+            <td>Specifický screening — zmínit v kontextu novorozenecké péče MY CLINIC.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="insight green" style="margin-top:0;margin-bottom:0;border-top:none;">
+        <div class="insight-label">Proč cluster D funguje pro Advertoriál 02</div>
+        Rodiče googling „šišatá hlava u miminka" jsou <strong>úzkostní a hledají odborníka</strong>, ne jen informaci.
+        Advertoriál MY CLINIC, který tento problém vysvětlí a ukáže, že fyzioterapeut i pediatr
+        <strong>spolupracují pod jednou střechou</strong>, přímo odpovídá na potřebu a buduje důvěru.
+        Tyto keywords mají nízkou organickou konkurenci — zdravotní portály pokrývají základy,
+        ale klinický kontext MY CLINIC (tým, fyzioterapie, novorozenecká péče) je diferencovaný.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 3: SEO DOPORUČENÍ ─────────────── -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">SEO doporučení <em>per advertoriál</em></h2>
+      <div class="section-count">URL · H1 · META · KEYWORDS · SCHEMA</div>
+    </div>
+
+    <div class="rec-grid">
+
+      <!-- REC 01 — Týmová péče -->
+      <div class="rec-card">
+        <div class="rec-card-head">
+          <div class="rec-num">Advertoriál 01</div>
+          <div class="rec-title">Týmová <em>péče</em></div>
+        </div>
+        <div class="rec-body">
+          <div class="rec-field">
+            <div class="rec-field-label">Doporučená URL</div>
+            <div class="rec-field-value"><code>/pediatrie/tymy-pece-o-dite</code>
+            nebo kratší <code>/pediatrie</code> pokud jde o hlavní stránku oboru.</div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">Doporučený H1</div>
+            <div class="rec-field-value"><strong>Soukromý pediatr Praha 6: péče, která na sebe navazuje</strong><br>
+            Alt: <em>Pediatrická péče pro vaše dítě — MY CLINIC Praha</em></div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">Meta description (~155 znaků)</div>
+            <div class="rec-field-value">Hledáte soukromého pediatra v Praze 6? V MY CLINIC péče nestojí jen na jednom lékaři. Pediatr, ORL, alergolog a fyzioterapeut pod jednou střechou. Zaregistrujte dítě.</div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">Primární klíčová slova</div>
+            <div class="rec-kw-list">
+              <span class="rec-kw primary">soukromý pediatr Praha</span>
+              <span class="rec-kw primary">pediatr Praha 6</span>
+              <span class="rec-kw primary">dětský lékař Praha 6</span>
+            </div>
+          </div>
+          <div class="rec-field">
+            <div class="rec-field-label">Sekundární klíčová slova</div>
+            <div class="rec-kw-list">
+              <span class="rec-kw secondary">soukromá pediatrie Praha</span>
+              <span class="rec-kw secondary">pediatr Praha 6 Dejvice</span>
+              <span class="rec-kw secondary">pediatr</span>
+              <span class="rec-kw secondary">dětský lékař</span>
+              <span class="rec-kw secondary">týmová péče</span>
+            </div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">Doporučené schema markup</div>
+            <div class="rec-field-value">
+              <code>MedicalClinic</code> + <code>Physician</code> per doctor +
+              <code>FAQPage</code> (sekce FAQ) + <code>LocalBusiness</code> (adresa Praha 6)
+            </div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">PPC cílení</div>
+            <div class="rec-field-value">Tento advertoriál je <strong>mezikrok</strong> — vhodný pro display/Meta (brand awareness) i jako landing page pro search reklamy na navigační dotazy „pediatr Praha 6". CPC dotazy: <em>soukromý pediatr Praha</em>, <em>dětský lékař Praha 6</em>.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REC 02 — Novorozenci -->
+      <div class="rec-card">
+        <div class="rec-card-head">
+          <div class="rec-num">Advertoriál 02</div>
+          <div class="rec-title"><em>Novorozenci</em> &amp; kojenci</div>
+        </div>
+        <div class="rec-body">
+          <div class="rec-field">
+            <div class="rec-field-label">Doporučená URL</div>
+            <div class="rec-field-value"><code>/pediatrie/pece-o-novorozence</code>
+            nebo <code>/pro-rodice/novorozenec</code> — podle navigace webu.</div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">Doporučený H1</div>
+            <div class="rec-field-value"><strong>Péče o novorozence a kojence: co řešit ještě před porodem</strong><br>
+            Alt: <em>Hledáte pediatra pro novorozence v Praze? MY CLINIC vám pomůže od začátku.</em></div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">Meta description (~155 znaků)</div>
+            <div class="rec-field-value">Novorozenecký screening, šišatá hlavička, první očkování — péče o miminka v MY CLINIC. Pediatr, fyzioterapeut a screeningové vyšetření pod jednou střechou v Praze 6.</div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">Primární klíčová slova</div>
+            <div class="rec-kw-list">
+              <span class="rec-kw primary">novorozenecký screening</span>
+              <span class="rec-kw primary">šišatá hlava u miminka</span>
+              <span class="rec-kw primary">dolichocefalická hlava</span>
+            </div>
+          </div>
+          <div class="rec-field">
+            <div class="rec-field-label">Sekundární klíčová slova</div>
+            <div class="rec-kw-list">
+              <span class="rec-kw secondary">placatá hlava u miminka</span>
+              <span class="rec-kw secondary">screening sluchu novorozenci</span>
+              <span class="rec-kw secondary">první očkování novorozence</span>
+              <span class="rec-kw secondary">preventivní prohlídka v 5 letech</span>
+            </div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">Doporučené schema markup</div>
+            <div class="rec-field-value">
+              <code>MedicalCondition</code> (plagiocefalie) + <code>MedicalProcedure</code>
+              (novorozenecký screening, screening sluchu) + <code>FAQPage</code> +
+              <code>MedicalClinic</code>
+            </div>
+          </div>
+          <hr class="rec-divider">
+          <div class="rec-field">
+            <div class="rec-field-label">Obsahová taktika</div>
+            <div class="rec-field-value">Sekce o šišaté hlavě + plagiocefálii je <strong>emocionálně nejsilnější vstupní bod</strong>. Tato sekce přiláká organický traffic a přirozeně dovede rodiče k fyzioterapii a pediatrické péči MY CLINIC.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 4: CONTENT GAP ────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Content <em>gaps</em></h2>
+      <div class="section-count">CO V DATASETU CHYBÍ</div>
+    </div>
+
+    <!-- GAP 1: Advertoriál 03 -->
+    <div class="gap-box">
+      <div class="gap-box-head">⚠ Advertoriál 03 — <em>školka &amp; imunita</em></div>
+      <div class="gap-box-body">
+        <p>V aktuálním keyword datasetu <strong>není jediný keyword</strong> přímo pokrývající téma
+        „dítě pořád nemocné po nástupu do školky". Advertoriál nelze briefovat bez dat.</p>
+        <p style="margin-top:12px;">Před napsáním content briefu je nutná <strong>rozšířená keyword analýza</strong>
+        v SEMRUSHu / Collabim pro oblasti:</p>
+        <div class="gap-kw-list">
+          <span class="gap-kw">dítě pořád nemocné</span>
+          <span class="gap-kw">opakované záněty uší dítě</span>
+          <span class="gap-kw">imunita dětí</span>
+          <span class="gap-kw">nosní mandle dítě</span>
+          <span class="gap-kw">laryngitida u dítěte</span>
+          <span class="gap-kw">posilování imunity dětí</span>
+          <span class="gap-kw">opakované záněty dýchacích cest</span>
+          <span class="gap-kw">dítě nemocné školka</span>
+          <span class="gap-kw">chrápání u dítěte</span>
+          <span class="gap-kw">alergie u dítěte</span>
+          <span class="gap-kw">chronický kašel dítě</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAP 2: Velká SEO příležitost -->
+    <div class="gap-box" style="border-color:rgba(176,121,20,0.35);background:rgba(168,138,92,0.04);">
+      <div class="gap-box-head" style="color:var(--amber);">⚡ Velká SEO příležitost — <em>očkovací cluster</em></div>
+      <div class="gap-box-body">
+        <p><strong>6 559 GSV měsíčně</strong> v očkovacím tématu — hexavakcína, MMR, očkování dětí.
+        Žádný z těchto keywords není pokryt na myclinic.cz. Zdravotní portály dominují,
+        ale informační obsah psaný lékařem MY CLINIC má šanci na pozice 3–8 pro long-tailové varianty.</p>
+        <p style="margin-top:12px;">Doporučená architektura SEO poradny:</p>
+        <div class="gap-kw-list">
+          <span class="gap-kw" style="color:var(--amber);border-color:rgba(176,121,20,0.4);">/poradna/ockovani-deti (hub)</span>
+          <span class="gap-kw">/poradna/hexavakcina</span>
+          <span class="gap-kw">/poradna/mmr-vakcina</span>
+          <span class="gap-kw">/poradna/plane-nestovice-ockovani</span>
+        </div>
+        <p style="margin-top:12px;">Tato stránka je <strong>mimo scope advertoriálního projektu</strong> — ale je to
+        správný second priority po spuštění advertoriálů.</p>
+      </div>
+    </div>
+
+    <!-- GAP 3: Preventivní prohlídky -->
+    <div class="gap-box" style="border-color:rgba(91,143,116,0.25);background:rgba(91,143,116,0.03);">
+      <div class="gap-box-head" style="color:var(--oxblood);">Střední příležitost — <em>preventivní prohlídky</em></div>
+      <div class="gap-box-body">
+        <p><strong>690 GSV</strong> v dotazech na věkové preventivní prohlídky (13, 15, 17 let + obecné).
+        Silně informační intent — rodiče hledají, co prohlídka zahrnuje, ne kde ji udělat.
+        Vhodné pro <strong>poradnu MY CLINIC</strong> jako autoritativní informační obsah.
+        Hub + spokes architektura podle věku dítěte: <code>/poradna/preventivni-prohlidky</code> (hub)
+        + sekundární stránky per věková skupina.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 5: AKČNÍ KROKY ─────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Akční <em>kroky</em></h2>
+      <div class="section-count"><strong>6</strong> ÚKOLŮ · PRIORITIZOVÁNO</div>
+    </div>
+
+    <div class="action-grid">
+
+      <div class="action-card">
+        <div class="action-step">1</div>
+        <div class="action-tag">Ihned · PPC agentura</div>
+        <div class="action-title">Napojit kampaně na doporučené URL</div>
+        <div class="action-desc">Použít doporučené URL slugy z tohoto briefu pro landing pages. Nastavit UTM strukturu dle kanálu (google/meta/sklik) a kampaně (advertorial-tymova-pece / advertorial-novorozenci).</div>
+        <div class="action-owner"><strong>Owner:</strong> PPC agentura · <strong>Vstup:</strong> Brief 01 hotový</div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-step">2</div>
+        <div class="action-tag">Ihned · Copywriter</div>
+        <div class="action-title">Napsat Advertoriál 01 — Týmová péče</div>
+        <div class="action-desc">Osnova a tone of voice v Briefu 02 (v přípravě). Primární keywords: soukromý pediatr Praha, pediatr Praha 6, dětský lékař Praha 6. Délka: 1 800–2 400 slov.</div>
+        <div class="action-owner"><strong>Owner:</strong> Copywriter · <strong>Blokuje:</strong> Brief 02</div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-step">3</div>
+        <div class="action-tag">Ihned · Copywriter</div>
+        <div class="action-title">Napsat Advertoriál 02 — Novorozenci</div>
+        <div class="action-desc">Sekce o šišaté hlavě miminka je nejsilnější vstupní bod. Primární keywords: novorozenecký screening, šišatá hlava u miminka, dolichocefalická hlava. Délka: 1 600–2 200 slov.</div>
+        <div class="action-owner"><strong>Owner:</strong> Copywriter · <strong>Blokuje:</strong> Brief 03</div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-step">4</div>
+        <div class="action-tag">Před Briefem 04 · Zbyněk Fridrich</div>
+        <div class="action-title">Rozšířit KW analýzu pro téma školka</div>
+        <div class="action-desc">Doplnit dataset o keywords z oblasti imunita dětí, opakované záněty, nosní mandle, laryngitida. Bez dat nelze briefovat Advertoriál 03. Nástroj: SEMRUSH / Collabim CZ.</div>
+        <div class="action-owner"><strong>Owner:</strong> Zbyněk Fridrich · <strong>Blokuje:</strong> Brief 04</div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-step">5</div>
+        <div class="action-tag">Po spuštění advertoriálů · Agentura + GA4</div>
+        <div class="action-title">Nastavit měření a remarketing</div>
+        <div class="action-desc">Scroll depth 50/75/90 %, klik na CTA, telefon, formulář. Oddělené remarketing audiences: novorozenci, týmová péče, poradna. Meta Pixel + GA4 event tracking.</div>
+        <div class="action-owner"><strong>Owner:</strong> Agentura · <strong>Specifikace:</strong> Advertoriální dokument §10</div>
+      </div>
+
+      <div class="action-card">
+        <div class="action-step">6</div>
+        <div class="action-tag">Q3 2026 · Zbyněk Fridrich</div>
+        <div class="action-title">Spustit SEO poradnu — očkovací cluster</div>
+        <div class="action-desc">6 559 GSV čeká. Po spuštění advertoriálů navrhnout architektu /poradna/ s očkovacím hubem. Hexavakcína (3 079 GSV) + MMR (1 256 GSV) jsou největší organické příležitosti MY CLINIC.</div>
+        <div class="action-owner"><strong>Owner:</strong> Zbyněk Fridrich · <strong>Stav:</strong> Mimo current scope</div>
+      </div>
+
+    </div>
+
+    <div class="for-line">
+      <strong>Pro agenturu:</strong> URL slugy z doporučení jsou navrhované — finální implementace závisí na struktuře webu myclinic.cz.
+      <strong>Pro copywritera:</strong> Briefy 02 a 03 přijdou jako samostatné dokumenty s detailní osnovou, příklady situací a tone of voice.
+      <strong>Brief 04</strong> (školka) je blokovaný — nespouštějte tvorbu textu bez rozšířené keyword analýzy.
+      Dotazy: <a href="mailto:jsem@zbynekfridrich.cz"><strong>jsem@zbynekfridrich.cz</strong></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────── -->
+<footer class="colophon">
+  <div class="container colophon-inner">
+    <div>Zbyněk Fridrich · SEO konzultant · <a href="mailto:jsem@zbynekfridrich.cz">jsem@zbynekfridrich.cz</a> · +420 775 150 657</div>
+    <div>Brief 01 · KW analýza advertoriálů · MY CLINIC · v1.0 · 28. 5. 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>

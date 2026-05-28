@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<title>Brief 03 — Rozšířené zadání · MY CLINIC · Zbyněk Fridrich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #dce8de;
+    --paper-deep:   #c4e0bf;
+    --surface:      #eef6ec;
+    --ink:          #2c2f35;
+    --ink-mute:     #595b63;
+    --ink-faint:    #74777e;
+    --hairline:     #bdd4ba;
+    --rust:         #5b8f74;
+    --rust-deep:    #3d6b55;
+    --sage:         #7da977;
+    --amber:        #a88a5c;
+    --mc-primary:   #9fc69a;
+    --display:      'Manrope','Helvetica Neue',sans-serif;
+    --sans:         'Inter',system-ui,sans-serif;
+    --mono:         'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  body{background-image:radial-gradient(at 12% 8%,rgba(91,143,116,0.07) 0,transparent 40%),radial-gradient(at 88% 92%,rgba(159,198,154,0.08) 0,transparent 44%);background-attachment:fixed;min-height:100vh;}
+  .container{max-width:1100px;margin:0 auto;padding:0 40px;}
+
+  /* MASTHEAD */
+  .masthead{background:rgba(220,232,222,0.88);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(44,47,53,0.08);padding:18px 0;position:sticky;top:0;z-index:100;}
+  .masthead-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand-wordmark{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-0.04em;color:var(--ink);}
+  .brand-sub{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink-mute);padding-left:14px;border-left:1px solid var(--hairline);}
+  .meta-strip{font-family:var(--mono);font-size:11px;color:var(--ink-faint);display:flex;gap:16px;flex-wrap:wrap;}
+  .meta-strip span strong{color:var(--ink);font-weight:500;}
+  a.back-link{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-faint);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .15s;}
+  a.back-link:hover{color:var(--ink);}
+  a[href^="mailto:"]{color:var(--rust);text-decoration:none;border-bottom:1px solid currentColor;}
+
+  /* HERO */
+  .hero{padding:64px 0 48px;border-bottom:1px solid rgba(44,47,53,0.08);}
+  .eyebrow{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--rust);margin-bottom:20px;}
+  h1.title{font-family:var(--display);font-weight:800;font-size:clamp(40px,5.5vw,80px);line-height:.95;letter-spacing:-.045em;margin-bottom:24px;color:var(--ink);}
+  h1.title em{font-style:normal;font-weight:300;color:var(--rust);}
+  .lead{font-size:18px;line-height:1.5;color:var(--ink-mute);max-width:640px;}
+  .lead em{font-style:normal;color:var(--rust);font-weight:500;}
+  .authors{margin-top:28px;padding:14px 18px;background:var(--surface);border-radius:10px;border:1px solid rgba(44,47,53,0.07);display:inline-flex;gap:28px;flex-wrap:wrap;}
+  .author-item{display:flex;flex-direction:column;gap:2px;}
+  .author-role{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-faint);font-weight:600;}
+  .author-name{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:-.01em;color:var(--ink);}
+
+  /* LEGENDA */
+  .legend{display:flex;gap:16px;flex-wrap:wrap;padding:14px 18px;background:#fff;border-radius:10px;margin:28px 0 0;box-shadow:0 1px 6px rgba(44,47,53,0.05);}
+  .legend-item{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;color:var(--ink-mute);}
+  .badge{display:inline-flex;align-items:center;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:3px 9px;border-radius:9999px;white-space:nowrap;}
+  .badge.orig{background:rgba(44,47,53,.07);color:var(--ink-faint);}
+  .badge.seo{background:rgba(91,143,116,.14);color:var(--rust);}
+  .badge.ai{background:rgba(168,138,92,.13);color:var(--amber);}
+  .badge.block{background:rgba(168,138,92,.13);color:var(--amber);border:1px solid rgba(168,138,92,.3);}
+
+  /* DOC STRUCTURE — chapters */
+  .chapter{padding:56px 0 20px;}
+  .chapter-head{display:flex;align-items:baseline;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--ink);}
+  .chapter-num{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-faint);font-weight:700;min-width:32px;}
+  h2.chapter-title{font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.03em;color:var(--ink);}
+  h2.chapter-title em{font-style:normal;font-weight:300;color:var(--rust);}
+
+  /* DOC BLOCK — sub-sections */
+  .doc-block{background:#fff;border-radius:16px;box-shadow:0 2px 10px rgba(44,47,53,0.05);margin-bottom:16px;overflow:hidden;}
+  .doc-block-head{display:flex;align-items:center;gap:12px;padding:16px 22px;border-bottom:1px solid rgba(44,47,53,0.06);}
+  .doc-block-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-faint);font-weight:600;}
+  .doc-block-title{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.02em;color:var(--ink);}
+  .doc-block-body{padding:18px 22px;}
+  .doc-block-body p{font-size:14px;color:var(--ink-mute);line-height:1.65;margin-bottom:10px;}
+  .doc-block-body p:last-child{margin-bottom:0;}
+  .doc-block-body strong{color:var(--ink);}
+  .doc-block-body em{color:var(--rust);font-style:normal;}
+  .doc-block-body ul{margin:8px 0 10px 0;padding-left:0;list-style:none;}
+  .doc-block-body li{font-size:14px;color:var(--ink-mute);padding:3px 0 3px 18px;position:relative;}
+  .doc-block-body li::before{content:'—';position:absolute;left:0;color:var(--ink-faint);font-size:12px;}
+  .doc-block-body li strong{color:var(--ink);}
+
+  /* SEO ADDON BLOCK — visually distinct insert */
+  .seo-insert{background:rgba(91,143,116,0.06);border-radius:12px;border:1px solid rgba(91,143,116,0.2);padding:16px 20px;margin-top:12px;}
+  .seo-insert + .seo-insert{margin-top:8px;}
+  .seo-insert-label{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--rust);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+  .seo-insert p{font-size:13.5px;color:var(--ink-mute);line-height:1.6;margin-bottom:6px;}
+  .seo-insert p:last-child{margin-bottom:0;}
+  .seo-insert strong{color:var(--ink);}
+  .seo-insert code,.mono-val{font-family:var(--mono);font-size:12.5px;background:var(--paper-deep,#c4e0bf);padding:1px 7px;border-radius:4px;color:var(--ink);}
+
+  /* AI ADDON BLOCK */
+  .ai-insert{background:rgba(168,138,92,0.07);border-radius:12px;border:1px solid rgba(168,138,92,0.2);padding:16px 20px;margin-top:12px;}
+  .ai-insert-label{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--amber);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+  .ai-insert p{font-size:13.5px;color:var(--ink-mute);line-height:1.6;margin-bottom:6px;}
+  .ai-insert p:last-child{margin-bottom:0;}
+  .ai-insert strong{color:var(--ink);}
+
+  /* INLINE TAGS */
+  .kw{font-family:var(--mono);font-size:12px;font-weight:600;background:rgba(91,143,116,.12);color:var(--rust);padding:1px 7px;border-radius:4px;border:1px solid rgba(91,143,116,.25);}
+  .kw.pri{font-weight:700;background:rgba(91,143,116,.18);border-color:rgba(91,143,116,.4);}
+  .cta-chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:4px 12px;border-radius:9999px;background:var(--paper);border:1px solid var(--hairline);color:var(--ink-mute);margin:2px;}
+
+  /* TABLE */
+  .doc-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  .doc-table th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-faint);font-weight:600;padding:10px 14px;text-align:left;background:rgba(44,47,53,.04);border-bottom:1px solid var(--hairline);}
+  .doc-table td{padding:11px 14px;color:var(--ink-mute);border-bottom:1px solid rgba(44,47,53,.05);vertical-align:top;}
+  .doc-table tr:last-child td{border-bottom:none;}
+  .doc-table td:first-child{font-weight:500;color:var(--ink);}
+
+  /* SCHEMA CODE */
+  .schema-code{background:var(--ink);border-radius:12px;padding:20px 24px;font-family:var(--mono);font-size:12px;line-height:1.8;color:#9fc69a;overflow-x:auto;margin-top:12px;}
+  .sk{color:#7da977;} .sv{color:#c4e0bf;} .st{color:#a88a5c;} .sc{color:#595b63;}
+
+  /* BLOCKER BANNER */
+  .blocker{background:rgba(168,138,92,.08);border:1px solid rgba(168,138,92,.3);border-radius:12px;padding:14px 18px;margin-top:12px;font-size:13.5px;color:var(--ink-mute);line-height:1.6;}
+  .blocker strong{color:var(--amber);}
+
+  /* FOR-LINE */
+  .for-line{font-family:var(--mono);font-size:12px;color:var(--ink-mute);margin-top:40px;padding:14px 20px;background:#fff;border-radius:10px;border-left:3px solid var(--rust);box-shadow:0 1px 6px rgba(44,47,53,0.05);line-height:1.6;}
+  .for-line strong{color:var(--ink);}
+
+  /* DIVIDER */
+  .chapter-divider{border:none;border-top:1px solid rgba(44,47,53,0.08);margin:0;}
+
+  footer.colophon{margin-top:72px;padding:40px 0 52px;border-top:1px solid rgba(44,47,53,0.08);font-family:var(--mono);font-size:11px;color:var(--ink-faint);}
+  .colophon-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+
+  @media(max-width:800px){
+    .container{padding:0 20px;}
+    .hero{padding:44px 0 36px;}
+    .chapter-head{flex-direction:column;gap:4px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="container masthead-inner">
+    <div class="brand">
+      <div class="brand-wordmark">Zbyněk Fridrich</div>
+      <span class="brand-sub">SEO konzultant</span>
+    </div>
+    <div class="meta-strip">
+      <span><a href="../../index.html" class="back-link"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Dashboard</a></span>
+      <span>KLIENT <strong>MY CLINIC</strong></span>
+      <span><a href="../" class="back-link" style="color:var(--ink-faint);border-bottom:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Advertoriál</a></span><span>BRIEF <strong>03 — Finální brief</strong></span>
+      <span>28. 5. 2026</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Brief 03 · Rozšířené zadání · Advertoriál 01 — Týmová péče</div>
+    <h1 class="title">Původní zadání<br><em>+ SEO a AI vrstva</em></h1>
+    <p class="lead">
+      Dokument zachovává <em>kompletní strukturu původního briefu MY CLINIC</em>
+      a na správná místa vkládá SEO a AI/GEO doplnění.
+      Jeden soubor pro copywritera i web development.
+    </p>
+    <div class="authors">
+      <div class="author-item"><span class="author-role">Zadání &amp; obsah</span><span class="author-name">Blanka Albrechtová</span></div>
+      <div style="width:1px;background:var(--hairline);"></div>
+      <div class="author-item"><span class="author-role">SEO &amp; AI vrstva</span><span class="author-name">Zbyněk Fridrich</span></div>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="badge orig">Původní</span> Obsah z původního briefu MY CLINIC</div>
+      <div class="legend-item"><span class="badge seo">SEO addon</span> Doplnění technického SEO</div>
+      <div class="legend-item"><span class="badge ai">AI / GEO</span> Optimalizace pro AI citace</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 1: KOMUNIKAČNÍ RÁMEC
+═══════════════════════════════════════════════ -->
+<div class="container">
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">01</span>
+    <h2 class="chapter-title">Komunikační <em>rámec</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">Hlavní claim</span>
+    </div>
+    <div class="doc-block-body">
+      <p style="font-family:var(--display);font-size:24px;font-weight:700;letter-spacing:-.03em;color:var(--ink);">„Jeden pacient. Celý tým."</p>
+      <p>Soukromá klinika, kde o dítě pečuje koordinovaný tým specialistů pod jednou střechou — bez přepisu, bez čekání na žádanku, bez ztráty informací mezi lékaři.</p>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">Positioning</span>
+    </div>
+    <div class="doc-block-body">
+      <p>MY CLINIC není substitut státní pediatrie — je to <strong>nadstavba a volba rodičů, kteří chtějí mít zdraví dítěte pod kontrolou.</strong> Klíčový emocionální motiv: bezpečí a klid mysli.</p>
+      <ul>
+        <li>Rodiče nechtějí čekat týdny na specialistu, když dítě trpí</li>
+        <li>Rodiče nechtějí opakovat historii dítěte každému novému lékaři</li>
+        <li>Rodiče chtějí jednoho koordinátora, který „má přehled o celém dítěti"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge ai">AI / GEO</span>
+      <span class="doc-block-label">Definition block pro AI extrakci</span>
+    </div>
+    <div class="doc-block-body">
+      <p>Vložit do textu jako samostatný odstavec nebo zvýrazněný box — ChatGPT, Perplexity a Gemini z tohoto bloku čerpají odpovědi na dotazy o MY CLINIC:</p>
+      <div class="ai-insert">
+        <div class="ai-insert-label">▸ AI / GEO — Copy-paste do textu</div>
+        <p><em>„MY CLINIC je soukromá pediatrická klinika v Praze 6, která nabízí komplexní péči o dítě pod jednou střechou — pediatr, ORL, alergolog, dermatolog, fyzioterapeut a psycholog. Klinika přijímá pacienty bez žádanky, se zárukou krátkých objednacích lhůt a přímou komunikací s lékařem."</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 2: CÍLOVÁ SKUPINA
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">02</span>
+    <h2 class="chapter-title">Cílová <em>skupina</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">Primární cílová skupina</span>
+    </div>
+    <div class="doc-block-body">
+      <ul>
+        <li><strong>Rodiče 28–42 let</strong> — aktivní, rozhodující, hledají kvalitní soukromou péči v Praze</li>
+        <li>Nespokojenní se státní pediatrií (čekací doby, dostupnost, čas lékaře)</li>
+        <li>Ekonomicky silnější segment — schopní a ochotní platit za komfort a kvalitu</li>
+        <li>Digitálně zdatní — hledají online, čtou recenze, porovnávají</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">Sekundární cílová skupina</span>
+    </div>
+    <div class="doc-block-body">
+      <ul>
+        <li><strong>Rodiče novorozenců</strong> — hledají pediatra ještě před porodem nebo v prvních týdnech</li>
+        <li><strong>Rodiče dospívajících</strong> — hledají komplexní péči zahrnující psychologa nebo dermatologa</li>
+        <li><strong>Expati v Praze 6</strong> — anglicky mluvící rodiny (potenciál, pokud klinika nabízí AJ)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge seo">SEO addon</span>
+      <span class="doc-block-label">Keyword intent mapping — kdo hledá co</span>
+    </div>
+    <div class="doc-block-body">
+      <div class="seo-insert">
+        <div class="seo-insert-label">▸ SEO — KW clustery odpovídají cílovým skupinám</div>
+        <table class="doc-table">
+          <thead><tr><th>Cílová skupina</th><th>KW cluster</th><th>GSV / měsíc</th></tr></thead>
+          <tbody>
+            <tr><td>Hledá pediatra v Praze</td><td><span class="kw pri">soukromý pediatr Praha</span>, <span class="kw pri">pediatr Praha 6</span></td><td>3 942</td></tr>
+            <tr><td>Rodiče novorozenců</td><td><span class="kw">pediatr pro novorozence Praha</span>, <span class="kw">screening novorozence</span></td><td>467</td></tr>
+            <tr><td>Preventivní zájem</td><td><span class="kw">preventivní prohlídky děti</span></td><td>690</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 3: PLÁNOVANÉ ADVERTORIÁLY
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">03</span>
+    <h2 class="chapter-title">Plánované <em>advertoriály</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">A01 · V řešení</span>
+      <span class="badge seo" style="margin-left:auto;">Brief 03</span>
+    </div>
+    <div class="doc-block-body">
+      <p><strong>„Nová generace pediatrické péče: proč za zdravím dítěte nemá stát jen jeden lékař"</strong></p>
+      <p>Téma: týmová péče. KW cluster NAV (hledám pediatra, 3 942 GSV). Tento dokument se věnuje právě tomuto advertoriálu.</p>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">A02 · Plánováno</span>
+    </div>
+    <div class="doc-block-body">
+      <p><strong>„Hledáte pediatra pro novorozence? Co řešit ještě před porodem"</strong></p>
+      <p>Téma: novorozenci a screening. KW cluster Novorozenci (467 GSV). Zahájit po finalizaci A01.</p>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">A03 · Blokováno</span>
+    </div>
+    <div class="doc-block-body">
+      <p><strong>„Dítě je po nástupu do školky pořád nemocné."</strong></p>
+      <p>Blokováno — chybí KW data pro cluster školka. Nutná rozšířená analýza (SEMRush/Collabim). Zahájit v Q3 2026.</p>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 4: STRUKTURA ADVERTORIÁLU 01
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">04</span>
+    <h2 class="chapter-title">Struktura <em>advertoriálu 01</em></h2>
+  </div>
+
+  <!-- SEO PARAMETRY — patří na začátek struktury -->
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge seo">SEO addon</span>
+      <span class="doc-block-label">Technické SEO parametry stránky</span>
+    </div>
+    <div class="doc-block-body">
+      <div class="seo-insert">
+        <div class="seo-insert-label">▸ SEO — pro web development</div>
+        <table class="doc-table">
+          <tbody>
+            <tr><td>URL slug</td><td><code class="mono-val">/pediatrie/tymova-pece</code> — fixní, nezměnit po deployi</td></tr>
+            <tr><td>Title tag</td><td><code class="mono-val">Soukromý pediatr Praha 6: týmová péče | MY CLINIC</code> (55 znaků)</td></tr>
+            <tr><td>Meta description</td><td>Hledáte soukromého pediatra v Praze 6? V MY CLINIC pečuje o vaše dítě tým: pediatr, ORL, alergolog, fyzioterapeut. Zaregistrujte dítě. (148 znaků)</td></tr>
+            <tr><td>Canonical URL</td><td><code class="mono-val">https://myclinic.cz/pediatrie/tymova-pece</code></td></tr>
+            <tr><td>Délka textu</td><td>1 800–2 500 slov</td></tr>
+            <tr><td>Indexace</td><td>index, follow</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- H1 -->
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">H1 nadpis</span>
+    </div>
+    <div class="doc-block-body">
+      <p style="font-family:var(--display);font-size:20px;font-weight:700;letter-spacing:-.025em;color:var(--ink);">Nová generace pediatrické péče: proč za zdravím dítěte nemá stát jen jeden lékař</p>
+      <div class="seo-insert" style="margin-top:12px;">
+        <div class="seo-insert-label">▸ SEO — H1 ≠ Title tag záměrně</div>
+        <p>Title tag (Soukromý pediatr Praha 6) je optimalizovaný pro Google vyhledávání. H1 je pro čtenáře — má ho zaujmout a pokračovat ve čtení. Oba texty zachovat beze změny.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEREX -->
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">Perex — úvodní odstavec</span>
+    </div>
+    <div class="doc-block-body">
+      <p>2–3 věty vystihující hlavní benefit: tým specialistů, bez čekání, bez přepisu. Emoce: bezpečí a klid mysli rodiče.</p>
+      <div class="seo-insert" style="margin-top:12px;">
+        <div class="seo-insert-label">▸ SEO — keyword placement v perexu</div>
+        <p>Do prvního nebo druhého odstavce přirozeně vložit: <span class="kw pri">soukromý pediatr Praha</span> nebo <span class="kw pri">dětský lékař Praha 6</span>.</p>
+        <p>Příklad věty: <em>„Jako soukromý pediatr Praha 6 nabízíme rodinám přístup k týmu specialistů — bez čekání, bez přepisu k jiným lékařům."</em></p>
+      </div>
+      <div class="ai-insert" style="margin-top:8px;">
+        <div class="ai-insert-label">▸ AI / GEO — definition block</div>
+        <p>Vložit definition block z Sekce 1 jako první nebo druhý odstavec článku — AI systémy ho indexují jako autoritativní popis kliniky.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- H2 STRUKTURA -->
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">H2 struktura článku</span>
+    </div>
+    <div class="doc-block-body">
+      <table class="doc-table">
+        <thead><tr><th>#</th><th>H2 nadpis</th><th>Typ</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>H2 1</td>
+            <td>Proč dítě potřebuje celý tým, ne jednoho lékaře
+              <div class="seo-insert" style="margin-top:8px;">
+                <div class="seo-insert-label">▸ SEO</div>
+                <p>Zmínit <span class="kw">týmová pediatrická péče</span> přirozeně v textu sekce.</p>
+              </div>
+            </td>
+            <td><span class="badge orig">Původní</span></td>
+          </tr>
+          <tr>
+            <td>H2 2</td>
+            <td>
+              <span style="text-decoration:line-through;color:var(--ink-faint);">Náš tým lékařů</span><br>
+              <strong>→ Kdo se o vaše dítě postará? Náš tým pediatrů a specialistů</strong>
+              <div class="seo-insert" style="margin-top:8px;">
+                <div class="seo-insert-label">▸ SEO + AI — revize H2 na otázkový tvar</div>
+                <p>Otázkový H2 = lepší pro Google featured snippets a AI citace. Každý lékař = konkrétní jméno + titul (povinné pro E-E-A-T a entity density).</p>
+              </div>
+            </td>
+            <td><span class="badge seo">SEO revize</span></td>
+          </tr>
+          <tr>
+            <td>H2 3</td>
+            <td>
+              <span style="text-decoration:line-through;color:var(--ink-faint);">Jak to funguje v praxi</span><br>
+              <strong>→ Jak probíhá péče o dítě v MY CLINIC — od registrace po první návštěvu</strong>
+              <div class="seo-insert" style="margin-top:8px;">
+                <div class="seo-insert-label">▸ SEO — otázkový tvar + proces</div>
+                <p>Sekce vysvětlující průběh — online registrace, první návštěva, co očekávat. Zapracovat <span class="kw pri">pediatr Praha 6</span>.</p>
+              </div>
+            </td>
+            <td><span class="badge seo">SEO revize</span></td>
+          </tr>
+          <tr>
+            <td>H2 4</td>
+            <td>Pro koho je týmová péče — věkové skupiny a situace
+              <div class="seo-insert" style="margin-top:8px;">
+                <div class="seo-insert-label">▸ SEO</div>
+                <p>Sekce novorozenci = přirozené místo pro <span class="kw">pediatr pro novorozence Praha</span> (467 GSV).</p>
+              </div>
+            </td>
+            <td><span class="badge orig">Původní</span></td>
+          </tr>
+          <tr>
+            <td>H2 5</td>
+            <td>
+              <strong>Kde nás najdete a jak se objednat</strong>
+              <div class="seo-insert" style="margin-top:8px;">
+                <div class="seo-insert-label">▸ SEO — LocalBusiness entita</div>
+                <p>Adresa, MHD, parkování. Zapracovat <span class="kw">pediatr Praha 6 Bubeneč</span>. Povinné pro LocalBusiness schema.</p>
+              </div>
+            </td>
+            <td><span class="badge seo">SEO addon</span></td>
+          </tr>
+          <tr>
+            <td>H2 6</td>
+            <td>
+              <strong>Nejčastější otázky rodičů</strong>
+              <div class="ai-insert" style="margin-top:8px;">
+                <div class="ai-insert-label">▸ AI / GEO — FAQ sekce</div>
+                <p>FAQ zvyšuje šanci na Google featured snippet a přímou citaci v ChatGPT/Perplexity. Kompletní FAQ viz Sekce 8.</p>
+              </div>
+            </td>
+            <td><span class="badge ai">AI addon</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- KEYWORD PLACEMENT -->
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge seo">SEO addon</span>
+      <span class="doc-block-label">Keyword placement — instrukce pro copywritera</span>
+    </div>
+    <div class="doc-block-body">
+      <div class="seo-insert">
+        <div class="seo-insert-label">▸ SEO — pravidlo density: max. 2–3× primární KW na 2 000 slov</div>
+        <table class="doc-table">
+          <thead><tr><th>Klíčové slovo</th><th>GSV</th><th>Kde v textu</th></tr></thead>
+          <tbody>
+            <tr><td><span class="kw pri">soukromý pediatr Praha</span></td><td>1 200</td><td>Title tag, perex, 1× tělo</td></tr>
+            <tr><td><span class="kw pri">pediatr Praha 6</span></td><td>880</td><td>H2 „Jak se objednat", meta, 1× tělo</td></tr>
+            <tr><td><span class="kw pri">dětský lékař Praha 6</span></td><td>590</td><td>1× perex nebo tělo</td></tr>
+            <tr><td><span class="kw">soukromá pediatrie Praha</span></td><td>320</td><td>1× tělo přirozeně</td></tr>
+            <tr><td><span class="kw">registrace k pediatrovi Praha</span></td><td>260</td><td>V CTA sekci</td></tr>
+            <tr><td><span class="kw">pediatr pro novorozence Praha</span></td><td>467</td><td>Sekce věkové skupiny — novorozenci</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 5: TÝM MY CLINIC
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">05</span>
+    <h2 class="chapter-title">Tým <em>MY CLINIC</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">Specialisté pod jednou střechou</span>
+    </div>
+    <div class="doc-block-body">
+      <ul>
+        <li><strong>Pediatr</strong> — hlavní koordinátor péče o dítě</li>
+        <li><strong>ORL</strong> — ucho, nos, krk (opakované záněty, adenoidy)</li>
+        <li><strong>Alergolog</strong> — alergie, astma, ekzém</li>
+        <li><strong>Dermatolog</strong> — kožní problémy dětí</li>
+        <li><strong>Fyzioterapeut</strong> — pohybový aparát, sportovní zranění, VDT</li>
+        <li><strong>Psycholog</strong> — vývojové poruchy, školní problémy, úzkosti</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge ai">AI / GEO + SEO</span>
+      <span class="doc-block-label">E-E-A-T — autor článku</span>
+    </div>
+    <div class="doc-block-body">
+      <div class="blocker">
+        <strong>⚠ Blokátor — čeká rozhodnutí MY CLINIC:</strong> Bez jména autora-lékaře nelze implementovat E-E-A-T, author schema ani entity density. Stačí jméno + titul + souhlas lékaře.
+      </div>
+      <div class="ai-insert" style="margin-top:12px;">
+        <div class="ai-insert-label">▸ AI / GEO — E-E-A-T implementace</div>
+        <table class="doc-table">
+          <tbody>
+            <tr><td>Autor článku</td><td><strong>[DOPLNIT]</strong> — jméno, titul, link na profil na myclinic.cz</td></tr>
+            <tr><td>Author box v textu</td><td>Viditelný blok: foto + jméno + specializace + odkaz. Web implementuje.</td></tr>
+            <tr><td>Datum aktualizace</td><td>Viditelné datum na stránce — <code class="mono-val">&lt;time datetime="2026-05-28"&gt;</code></td></tr>
+            <tr><td>Entity density</td><td>Každý lékař = jméno + titul + specializace v textu (min. 2 lékaři jmenovitě)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 6: VĚKOVÉ SKUPINY
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">06</span>
+    <h2 class="chapter-title">Věkové skupiny <em>&amp; emoce</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">Segmentace a emoce rodičů</span>
+    </div>
+    <div class="doc-block-body">
+      <table class="doc-table">
+        <thead><tr><th>Věk</th><th>Typická potřeba</th><th>Emoce rodiče</th></tr></thead>
+        <tbody>
+          <tr><td>0–1 rok (novorozenec)</td><td>Screening, kojení, první nemoci</td><td>Strach z neznámého, hledání jistoty</td></tr>
+          <tr><td>1–3 roky (batole)</td><td>Opakované infekty, ORL problémy</td><td>Únava z nemocí, touha po řešení</td></tr>
+          <tr><td>3–6 let (předškolák)</td><td>Alergie, kůže, nástup do školky</td><td>Obavy z adaptace, hledání komplexní péče</td></tr>
+          <tr><td>6–15 let (školák)</td><td>Sportovní zranění, soustředění, VDT</td><td>Chce aktivní dítě zpět do sportu/školy</td></tr>
+          <tr><td>15+ (dospívající)</td><td>Psychologie, kůže, sport</td><td>Hledá diskrétní, neodsuzující přístup</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 7: CTA HIERARCHIE
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">07</span>
+    <h2 class="chapter-title">CTA <em>hierarchie</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">4 CTA v textu advertoriálu</span>
+    </div>
+    <div class="doc-block-body">
+      <table class="doc-table">
+        <thead><tr><th>#</th><th>Text CTA</th><th>Pozice v textu</th><th>Akce</th></tr></thead>
+        <tbody>
+          <tr><td>CTA 1</td><td><strong>„Objednat dítě online"</strong></td><td>Pod H1 / perexem</td><td>Přechod na objednávkový formulář</td></tr>
+          <tr><td>CTA 2</td><td><strong>„Poznat náš tým"</strong></td><td>Pod sekcí o týmu</td><td>Odkaz na stránky lékařů</td></tr>
+          <tr><td>CTA 3</td><td><strong>„Zaregistrovat novorozence"</strong></td><td>V sekci novorozenci</td><td>Registrační formulář</td></tr>
+          <tr><td>CTA 4</td><td><strong>„Zjistit ceník"</strong></td><td>Footer článku</td><td>Ceník / programy péče</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 8: FAQ SEKCE
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">08</span>
+    <h2 class="chapter-title">FAQ <em>sekce</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge ai">AI / GEO addon</span>
+      <span class="doc-block-label">4 otázky — FAQPage schema + AI citace + Google featured snippet</span>
+    </div>
+    <div class="doc-block-body">
+      <p style="margin-bottom:16px;">FAQ implementovat jako accordion nebo prostý Q&amp;A blok. Schema FAQPage povinné (viz Sekce 9).</p>
+
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="background:var(--surface);border-radius:10px;padding:14px 18px;">
+          <p style="font-weight:600;color:var(--ink);margin-bottom:6px;">Q: Potřebuji žádanku k soukromému pediatrovi v MY CLINIC?</p>
+          <p>Ne. V MY CLINIC přijímáme pacienty bez žádanky od praktického lékaře. Stačí se telefonicky nebo online objednat a zaregistrovat dítě. Péče je poskytována jako samoplátecká.</p>
+        </div>
+        <div style="background:var(--surface);border-radius:10px;padding:14px 18px;">
+          <p style="font-weight:600;color:var(--ink);margin-bottom:6px;">Q: Jak dlouhé jsou čekací doby v MY CLINIC?</p>
+          <p>Objednací lhůty jsou výrazně kratší než ve státní pediatrii. Akutní případy řešíme zpravidla do 24–48 hodin, plánované prohlídky do jednoho týdne.</p>
+        </div>
+        <div style="background:var(--surface);border-radius:10px;padding:14px 18px;">
+          <p style="font-weight:600;color:var(--ink);margin-bottom:6px;">Q: Jaký je rozdíl mezi soukromou a státní pediatrií?</p>
+          <p>V soukromé pediatrii máte zárukou delší čas na konzultaci, přístup k týmu specialistů bez přepisu a přímý kontakt na svého lékaře. Péče není hrazena pojišťovnou.</p>
+        </div>
+        <div style="background:var(--surface);border-radius:10px;padding:14px 18px;">
+          <p style="font-weight:600;color:var(--ink);margin-bottom:6px;">Q: Od kdy lze zaregistrovat dítě v MY CLINIC?</p>
+          <p>Přijímáme děti od novorozeneckého věku. Doporučujeme registraci ideálně ještě před porodem nebo v prvních týdnech po narození.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 9: KAMPAŇOVÁ LOGIKA
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">09</span>
+    <h2 class="chapter-title">Kampaňová <em>logika</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">Platformy a formáty</span>
+    </div>
+    <div class="doc-block-body">
+      <table class="doc-table">
+        <thead><tr><th>Platforma</th><th>Formát</th><th>Cílení</th></tr></thead>
+        <tbody>
+          <tr><td>Google Search</td><td>Textové reklamy</td><td>KW: soukromý pediatr Praha, pediatr Praha 6 a longtail varianty</td></tr>
+          <tr><td>Google Display</td><td>Bannerová reklama</td><td>Remarketing — návštěvníci webu MY CLINIC</td></tr>
+          <tr><td>Meta (Facebook + Instagram)</td><td>Carousel, single image, video</td><td>Demografické: rodiče 28–42 Praha, zájmy: rodičovství, zdraví dítěte</td></tr>
+          <tr><td>Sklik (Seznam)</td><td>Textové reklamy</td><td>KW: dětský lékař Praha 6, soukromá pediatrie Praha</td></tr>
+          <tr><td>Bing Ads</td><td>Textové reklamy</td><td>Expati, firemní klientela (MS ekosystém)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge seo">SEO addon</span>
+      <span class="doc-block-label">UTM parametry pro advertoriál</span>
+    </div>
+    <div class="doc-block-body">
+      <div class="seo-insert">
+        <div class="seo-insert-label">▸ SEO — tracking URL struktura</div>
+        <table class="doc-table">
+          <tbody>
+            <tr><td>Google Search</td><td><code class="mono-val">?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=tymova-pece</code></td></tr>
+            <tr><td>Meta</td><td><code class="mono-val">?utm_source=meta&amp;utm_medium=paid-social&amp;utm_campaign=tymova-pece</code></td></tr>
+            <tr><td>Sklik</td><td><code class="mono-val">?utm_source=sklik&amp;utm_medium=cpc&amp;utm_campaign=tymova-pece</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 10: MĚŘENÍ A TRACKING
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">10</span>
+    <h2 class="chapter-title">Měření <em>&amp; tracking</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">GA4 + konverzní události</span>
+    </div>
+    <div class="doc-block-body">
+      <ul>
+        <li><strong>Scroll depth</strong> — milníky 25 %, 50 %, 75 %, 100 % jako GA4 eventy</li>
+        <li><strong>CTA kliknutí</strong> — každé CTA jako samostatný GA4 event (objednat, zaregistrovat, ceník, tým)</li>
+        <li><strong>Konverze</strong> — odeslání registračního / objednávkového formuláře</li>
+        <li><strong>Time on page</strong> — průměrná doba čtení (cíl: min. 3 minuty)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge seo">SEO addon</span>
+      <span class="doc-block-label">Google Search Console — organická výkonnost</span>
+    </div>
+    <div class="doc-block-body">
+      <div class="seo-insert">
+        <div class="seo-insert-label">▸ SEO — sledovat po indexaci</div>
+        <ul>
+          <li>Impressions a CTR pro primární KW (soukromý pediatr Praha, pediatr Praha 6)</li>
+          <li>Průměrná pozice v prvních 30 dnech po nasazení</li>
+          <li>Featured snippet pro FAQ otázky (H2 „Nejčastější otázky")</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 11: REMARKETING
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">11</span>
+    <h2 class="chapter-title">Remarketing <em>&amp; audience</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge orig">Původní</span>
+      <span class="doc-block-label">Remarketingová publika a texty</span>
+    </div>
+    <div class="doc-block-body">
+      <table class="doc-table">
+        <thead><tr><th>Audience segment</th><th>Podmínka</th><th>Remarketingové sdělení</th></tr></thead>
+        <tbody>
+          <tr><td>Čtenáři advertoriálu</td><td>Návštěva /pediatrie/tymova-pece, scroll &gt;50 %</td><td>„Ještě přemýšlíte? Přijďte na bezplatnou konzultaci."</td></tr>
+          <tr><td>Opuštění formuláře</td><td>Zahájení formuláře, ale nedokončení</td><td>„Registrace trvá 2 minuty. Dokončete objednávku."</td></tr>
+          <tr><td>Návštěvníci ceníku</td><td>Návštěva /cenik/ bez konverze</td><td>„MY Care program — kompletní péče za fixní měsíční částku."</td></tr>
+          <tr><td>Čtenáři A02 (novorozenci)</td><td>Návštěva /pediatrie/novorozenci</td><td>„Zaregistrujte miminko ještě před porodem."</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<hr class="chapter-divider">
+
+<!-- ═══════════════════════════════════════════════
+     SEKCE 12: SCHEMA MARKUP + INTERNÍ LINKING
+═══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">12</span>
+    <h2 class="chapter-title">Schema markup <em>&amp; interní linking</em></h2>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge seo">SEO addon</span>
+      <span class="doc-block-label">Schema markup — JSON-LD pro web developer</span>
+    </div>
+    <div class="doc-block-body">
+      <p>Vložit do <code class="mono-val">&lt;head&gt;</code> jako <code class="mono-val">&lt;script type="application/ld+json"&gt;</code>. Tři bloky.</p>
+      <div class="schema-code">
+<span class="sc">// 1. MedicalClinic + LocalBusiness</span>
+{ <span class="sk">"@type"</span>: [<span class="st">"MedicalClinic"</span>, <span class="st">"LocalBusiness"</span>],
+  <span class="sk">"name"</span>: <span class="sv">"MY CLINIC"</span>,
+  <span class="sk">"address"</span>: { <span class="sk">"addressLocality"</span>: <span class="sv">"Praha 6"</span>, <span class="sk">"addressCountry"</span>: <span class="sv">"CZ"</span> },
+  <span class="sk">"medicalSpecialty"</span>: <span class="sv">"Pediatrics"</span> }
+
+<span class="sc">// 2. Physician — doplnit po rozhodnutí o autorovi</span>
+{ <span class="sk">"@type"</span>: <span class="st">"Physician"</span>,
+  <span class="sk">"name"</span>: <span class="sv">"[DOPLNIT]"</span>,
+  <span class="sk">"worksFor"</span>: { <span class="sk">"name"</span>: <span class="sv">"MY CLINIC"</span> } }
+
+<span class="sc">// 3. FAQPage</span>
+{ <span class="sk">"@type"</span>: <span class="st">"FAQPage"</span>,
+  <span class="sk">"mainEntity"</span>: [
+    { <span class="sk">"@type"</span>: <span class="st">"Question"</span>, <span class="sk">"name"</span>: <span class="sv">"Potřebuji žádanku?"</span>,
+      <span class="sk">"acceptedAnswer"</span>: { <span class="sk">"text"</span>: <span class="sv">"Ne. Bez žádanky..."</span> } }
+  ] }
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-block">
+    <div class="doc-block-head">
+      <span class="badge seo">SEO addon</span>
+      <span class="doc-block-label">Interní linking mapa</span>
+    </div>
+    <div class="doc-block-body">
+      <table class="doc-table">
+        <thead><tr><th>Odkaz kam</th><th>Anchor text</th><th>Kde v textu</th></tr></thead>
+        <tbody>
+          <tr><td>/pediatrie/</td><td>naše pediatrie</td><td>Breadcrumb + perex</td></tr>
+          <tr><td>/lekari/[pediatr]</td><td>Jméno lékaře + „profil"</td><td>Sekce tým</td></tr>
+          <tr><td>/objednat-se/</td><td>Objednat dítě online</td><td>CTA 1, 3</td></tr>
+          <tr><td>/cenik/</td><td>ceník pediatrické péče</td><td>Blízko FAQ</td></tr>
+          <tr><td>/programy-pece/</td><td>programy roční péče</td><td>Footer článku</td></tr>
+          <tr><td>/pediatrie/novorozenci</td><td>péče o novorozence</td><td>Sekce věkové skupiny</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /container -->
+</div>
+
+<div class="container">
+<div class="for-line">
+  Zadání: <strong>Blanka Albrechtová</strong> (<a href="mailto:b.albrechtova@myclinic.cz">b.albrechtova@myclinic.cz</a>) &nbsp;·&nbsp;
+  SEO &amp; AI vrstva: <strong>Zbyněk Fridrich</strong> (<a href="mailto:jsem@zbynekfridrich.cz">jsem@zbynekfridrich.cz</a>)
+</div>
+<footer class="colophon">
+  <div class="colophon-inner">
+    <div>Brief 03 · Rozšířené zadání · MY CLINIC · v1.0 · 28. 5. 2026</div>
+    <div>myclinic.cz · Advertoriál: Týmová péče</div>
+  </div>
+</footer>
+</div>
+
+</body>
+</html>

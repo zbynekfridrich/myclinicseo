@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<title>Advertoriál 01 — Týmová péče · MY CLINIC · Zbyněk Fridrich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#dce8de; --paper-deep:#c4e0bf; --surface:#eef6ec;
+    --ink:#2c2f35; --ink-mute:#595b63; --ink-faint:#74777e;
+    --hairline:#bdd4ba; --hairline-soft:#cde3ca;
+    --rust:#5b8f74; --rust-deep:#3d6b55; --sage:#7da977;
+    --amber:#a88a5c; --mc-primary:#9fc69a;
+    --display:'Manrope','Helvetica Neue',sans-serif;
+    --sans:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  body{background-image:radial-gradient(at 12% 8%,rgba(91,143,116,0.07) 0,transparent 40%),radial-gradient(at 88% 92%,rgba(159,198,154,0.08) 0,transparent 44%);background-attachment:fixed;min-height:100vh;}
+  .container{max-width:1100px;margin:0 auto;padding:0 40px;}
+
+  /* MASTHEAD */
+  .masthead{background:rgba(220,232,222,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(44,47,53,0.08);padding:20px 0;position:sticky;top:0;z-index:100;}
+  .masthead-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand-wordmark{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-0.04em;color:var(--ink);}
+  .brand-sub{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-mute);padding-left:14px;border-left:1px solid var(--hairline);}
+  .meta-strip{font-family:var(--mono);font-size:11px;color:var(--ink-faint);display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .meta-strip span strong{color:var(--ink);font-weight:500;}
+  a.back-link{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-faint);text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:color .15s;border-bottom:none!important;}
+  a.back-link:hover{color:var(--ink);}
+  a[href^="mailto:"]{color:var(--rust);text-decoration:none;border-bottom:1px solid currentColor;}
+
+  /* HERO */
+  .hero{padding:68px 0 52px;border-bottom:1px solid rgba(44,47,53,0.08);}
+  .eyebrow{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--rust);margin-bottom:20px;}
+  h1.title{font-family:var(--display);font-weight:800;font-size:clamp(40px,5.5vw,82px);line-height:.95;letter-spacing:-.045em;margin-bottom:24px;}
+  h1.title em{font-style:normal;font-weight:300;color:var(--rust);}
+  .lead{font-size:18px;line-height:1.5;color:var(--ink-mute);max-width:640px;}
+  .lead em{font-style:normal;color:var(--rust);font-weight:500;}
+  .hero-meta{margin-top:28px;display:flex;gap:20px;flex-wrap:wrap;}
+  .hero-tag{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;padding:5px 13px;border-radius:9999px;background:rgba(91,143,116,.12);color:var(--rust);border:1px solid rgba(91,143,116,.2);}
+
+  /* OUTPUT BOXES */
+  .outputs-section{padding:52px 0 40px;}
+  .outputs-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-faint);font-weight:700;margin-bottom:24px;}
+  .outputs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .output-card{background:#fff;border-radius:20px;box-shadow:0 2px 16px rgba(44,47,53,0.07),0 1px 4px rgba(44,47,53,0.04);text-decoration:none;color:inherit;display:flex;flex-direction:column;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+  .output-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(44,47,53,0.12),0 2px 8px rgba(44,47,53,0.06);}
+  .output-card-top{background:var(--ink);padding:22px 24px;display:flex;justify-content:space-between;align-items:flex-start;position:relative;overflow:hidden;border-radius:20px 20px 0 0;}
+  .output-card-top::before{content:'';position:absolute;top:0;right:0;width:100px;height:100px;background:radial-gradient(circle,rgba(91,143,116,.35) 0,transparent 70%);pointer-events:none;}
+  .output-num{font-family:var(--display);font-size:64px;font-weight:500;line-height:.9;letter-spacing:-.06em;color:var(--sage);position:relative;z-index:1;}
+  .output-pill{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;padding:4px 10px;border-radius:9999px;font-weight:700;position:relative;z-index:1;}
+  .output-pill.live{background:var(--sage);color:var(--paper);}
+  .output-pill.draft{background:var(--amber);color:#fff;}
+  .output-card-body{padding:20px 24px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .output-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--rust);font-weight:700;}
+  .output-title{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink);line-height:1.15;}
+  .output-title em{font-style:normal;font-weight:300;color:var(--rust);}
+  .output-desc{font-size:13px;color:var(--ink-mute);line-height:1.55;flex:1;}
+  .output-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid rgba(44,47,53,.07);margin-top:4px;}
+  .output-footer-meta{font-family:var(--mono);font-size:10px;color:var(--ink-faint);}
+  .output-arrow{width:20px;height:20px;color:var(--ink);}
+
+  /* SECTIONS */
+  section{padding:60px 0 24px;}
+  .section-head{margin-bottom:36px;padding-bottom:16px;border-bottom:2px solid var(--ink);display:flex;align-items:baseline;gap:16px;}
+  .section-num{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-faint);font-weight:700;min-width:36px;}
+  h2.section-title{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:-.03em;}
+  h2.section-title em{font-style:normal;font-weight:300;color:var(--rust);}
+
+  /* CONTENT BLOCKS */
+  .block{background:#fff;border-radius:16px;box-shadow:0 2px 10px rgba(44,47,53,0.05);margin-bottom:14px;overflow:hidden;}
+  .block-head{padding:14px 20px;border-bottom:1px solid rgba(44,47,53,0.06);display:flex;align-items:center;gap:10px;}
+  .block-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-faint);font-weight:600;}
+  .block-title{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.02em;color:var(--ink);}
+  .block-body{padding:16px 20px;font-size:14px;color:var(--ink-mute);line-height:1.65;}
+  .block-body p{margin-bottom:8px;}
+  .block-body p:last-child{margin-bottom:0;}
+  .block-body strong{color:var(--ink);}
+  .block-body ul{list-style:none;padding:0;}
+  .block-body li{padding:3px 0 3px 16px;position:relative;}
+  .block-body li::before{content:'—';position:absolute;left:0;color:var(--ink-faint);font-size:11px;}
+
+  /* TABLE */
+  .t{width:100%;border-collapse:collapse;font-size:13.5px;}
+  .t th{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-faint);font-weight:600;padding:9px 13px;text-align:left;background:rgba(44,47,53,.04);border-bottom:1px solid var(--hairline);}
+  .t td{padding:10px 13px;color:var(--ink-mute);border-bottom:1px solid rgba(44,47,53,.05);vertical-align:top;}
+  .t tr:last-child td{border-bottom:none;}
+  .t td:first-child{font-weight:500;color:var(--ink);}
+  .t-wrap{border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(44,47,53,0.05);}
+
+  /* CLAIM */
+  .claim{font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:-.03em;color:var(--ink);padding:20px 24px;background:var(--surface);border-radius:12px;border-left:4px solid var(--rust);margin-bottom:14px;}
+
+  /* CTA chips */
+  .cta-chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;padding:4px 12px;border-radius:9999px;background:var(--paper);border:1px solid var(--hairline);color:var(--ink-mute);margin:3px 2px;}
+
+  /* SECTION DIVIDER */
+  .sdiv{border:none;border-top:1px solid rgba(44,47,53,.08);margin:0;}
+
+  /* FOOTER */
+  footer.colophon{margin-top:72px;padding:40px 0 52px;border-top:1px solid rgba(44,47,53,0.08);font-family:var(--mono);font-size:11px;color:var(--ink-faint);}
+  .colophon-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+
+  @media(max-width:860px){
+    .container{padding:0 22px;}
+    .outputs-grid{grid-template-columns:1fr;}
+    .hero{padding:44px 0 36px;}
+    .section-head{flex-direction:column;gap:4px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="container masthead-inner">
+    <div class="brand">
+      <div class="brand-wordmark">Zbyněk Fridrich</div>
+      <span class="brand-sub">SEO konzultant</span>
+    </div>
+    <div class="meta-strip">
+      <span><a href="./index.html" class="back-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Dashboard
+      </a></span>
+      <span>KLIENT <strong>MY CLINIC</strong></span>
+      <span>ADVERTORIÁL <strong>01 — Týmová péče</strong></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Advertoriál 01 · PPC kampaně · myclinic.cz</div>
+    <h1 class="title">Týmová <em>péče</em></h1>
+    <p class="lead">
+      Zadání advertoriálu od MY CLINIC &amp; Blanky Albrechtové —
+      <em>komunikační rámec, struktura, kampaň.</em>
+      SEO a AI vrstva Zbyňka Fridricha.
+    </p>
+    <div class="hero-meta">
+      <span class="hero-tag">Soukromý pediatr Praha</span>
+      <span class="hero-tag">3 942 GSV · NAV cluster</span>
+      <span class="hero-tag">11 gaps identifikováno</span>
+      <span class="hero-tag">3 výstupy připraveny</span>
+    </div>
+  </div>
+</section>
+
+<!-- OUTPUT BOXES -->
+<div style="padding:52px 0 8px;">
+  <div class="container">
+    <div class="outputs-label">3 výstupy · kliknutím otevřete dokument</div>
+    <div class="outputs-grid">
+
+      <a href="./brief-advertorial/klicova-slova" class="output-card">
+        <div class="output-card-top">
+          <div class="output-num">01</div>
+          <span class="output-pill live">Připraveno</span>
+        </div>
+        <div class="output-card-body">
+          <div class="output-tag">KW analýza · Keyword pool</div>
+          <div class="output-title">Klíčová <em>slova</em></div>
+          <div class="output-desc">55 KW, 5 clusterů, 11 700 GSV. Navigační cluster „hledám pediatra" (3 942 GSV) → Advertoriál 01.</div>
+          <div class="output-footer">
+            <span class="output-footer-meta">PPC agentura · Copywriter</span>
+            <svg class="output-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="./brief-advertorial/struktura" class="output-card">
+        <div class="output-card-top">
+          <div class="output-num">02</div>
+          <span class="output-pill live">Připraveno</span>
+        </div>
+        <div class="output-card-body">
+          <div class="output-tag">SEO &amp; AI audit · Gaps</div>
+          <div class="output-title">Struktura <em>&amp; gaps</em></div>
+          <div class="output-desc">6 SEO gaps + 5 AI/GEO gaps. Každý gap má konkrétní addon připravený k vložení do briefu.</div>
+          <div class="output-footer">
+            <span class="output-footer-meta">MY CLINIC · Copywriter · Web</span>
+            <svg class="output-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="./brief-advertorial/finalni-brief" class="output-card">
+        <div class="output-card-top">
+          <div class="output-num">03</div>
+          <span class="output-pill live">Připraveno</span>
+        </div>
+        <div class="output-card-body">
+          <div class="output-tag">Rozšířené zadání · Finální brief</div>
+          <div class="output-title">Finální <em>brief</em></div>
+          <div class="output-desc">Původní zadání + SEO & AI vrstva v jednom dokumentu. Jeden soubor pro copywritera i web development.</div>
+          <div class="output-footer">
+            <span class="output-footer-meta">Copywriter · Web dev</span>
+            <svg class="output-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ZADÁNÍ ═══ -->
+<div style="padding:16px 0 0;">
+  <div class="container">
+    <div style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-faint);font-weight:700;padding:40px 0 0;">Zadání · Původní brief MY CLINIC</div>
+  </div>
+</div>
+
+<!-- 01 KOMUNIKAČNÍ RÁMEC -->
+<div class="container">
+<section>
+  <div class="section-head">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Komunikační <em>rámec</em></h2>
+  </div>
+
+  <div class="claim">„Jeden pacient. Celý tým."</div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-label">Positioning</span></div>
+    <div class="block-body">
+      <p>MY CLINIC není substitut státní pediatrie — je to <strong>nadstavba a volba rodičů, kteří chtějí mít zdraví dítěte pod kontrolou.</strong> Klíčový emocionální motiv: bezpečí a klid mysli.</p>
+      <ul>
+        <li>Rodiče nechtějí čekat týdny na specialistu, když dítě trpí</li>
+        <li>Rodiče nechtějí opakovat anamnézu dítěte každému novému lékaři</li>
+        <li>Rodiče chtějí jednoho koordinátora, který „má přehled o celém dítěti"</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<hr class="sdiv">
+
+<!-- 02 CÍLOVÁ SKUPINA -->
+<section>
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Cílová <em>skupina</em></h2>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-label">Primární segment</span></div>
+    <div class="block-body">
+      <ul>
+        <li><strong>Rodiče 28–42 let</strong> — aktivní, rozhodující, hledají kvalitní péči v Praze</li>
+        <li>Nespokojenní se státní pediatrií (čekání, dostupnost, čas lékaře)</li>
+        <li>Ekonomicky silnější segment — platí za komfort a kvalitu</li>
+        <li>Digitálně zdatní — hledají online, čtou recenze, porovnávají</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-label">Sekundární segmenty</span></div>
+    <div class="block-body">
+      <ul>
+        <li><strong>Rodiče novorozenců</strong> — hledají pediatra ještě před porodem</li>
+        <li><strong>Rodiče dospívajících</strong> — potřeba psychologa, dermatologa</li>
+        <li><strong>Expati v Praze 6</strong> — anglicky mluvící rodiny</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<hr class="sdiv">
+
+<!-- 03 PLÁNOVANÉ ADVERTORIÁLY -->
+<section>
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Plánované <em>advertoriály</em></h2>
+  </div>
+
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th>#</th><th>Název</th><th>Téma</th><th>Stav</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>A01</td>
+          <td><strong>„Nová generace pediatrické péče: proč za zdravím dítěte nemá stát jen jeden lékař"</strong></td>
+          <td>Týmová péče</td>
+          <td><span style="font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:9999px;background:rgba(91,143,116,.12);color:var(--rust);font-weight:700;">V řešení</span></td>
+        </tr>
+        <tr>
+          <td>A02</td>
+          <td>„Hledáte pediatra pro novorozence? Co řešit ještě před porodem"</td>
+          <td>Novorozenci &amp; screening</td>
+          <td><span style="font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:9999px;background:rgba(168,138,92,.10);color:var(--amber);font-weight:700;">Plánováno</span></td>
+        </tr>
+        <tr>
+          <td>A03</td>
+          <td>„Dítě je po nástupu do školky pořád nemocné."</td>
+          <td>Školka &amp; opakované infekce</td>
+          <td><span style="font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:9999px;background:rgba(44,47,53,.07);color:var(--ink-faint);font-weight:700;">Blokováno</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<hr class="sdiv">
+
+<!-- 04 STRUKTURA A01 -->
+<section>
+  <div class="section-head">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Struktura <em>advertoriálu A01</em></h2>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-label">H1 nadpis</span></div>
+    <div class="block-body">
+      <p style="font-family:var(--display);font-size:20px;font-weight:700;letter-spacing:-.025em;color:var(--ink);">Nová generace pediatrické péče: proč za zdravím dítěte nemá stát jen jeden lékař</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-label">H2 struktura</span></div>
+    <div class="block-body">
+      <ul>
+        <li>Proč dítě potřebuje celý tým, ne jednoho lékaře</li>
+        <li>Kdo se o vaše dítě postará? Náš tým pediatrů a specialistů</li>
+        <li>Jak probíhá péče o dítě v MY CLINIC — od registrace po první návštěvu</li>
+        <li>Pro koho je týmová péče — věkové skupiny a situace</li>
+        <li>Kde nás najdete a jak se objednat</li>
+        <li>Nejčastější otázky rodičů</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-label">Technické parametry</span></div>
+    <div class="block-body">
+      <div class="t-wrap" style="margin-top:4px;">
+        <table class="t">
+          <tbody>
+            <tr><td>URL slug</td><td><code style="font-family:var(--mono);font-size:12px;background:var(--surface);padding:1px 6px;border-radius:4px;">/pediatrie/tymova-pece</code></td></tr>
+            <tr><td>Délka textu</td><td>1 800–2 500 slov</td></tr>
+            <tr><td>Indexace</td><td>index, follow</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="sdiv">
+
+<!-- 05 TÝM MY CLINIC -->
+<section>
+  <div class="section-head">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Tým <em>MY CLINIC</em></h2>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-label">Specialisté pod jednou střechou</span></div>
+    <div class="block-body">
+      <ul>
+        <li><strong>Pediatr</strong> — hlavní koordinátor péče o dítě</li>
+        <li><strong>ORL</strong> — ucho, nos, krk (opakované záněty, adenoidy)</li>
+        <li><strong>Alergolog</strong> — alergie, astma, ekzém</li>
+        <li><strong>Dermatolog</strong> — kožní problémy dětí</li>
+        <li><strong>Fyzioterapeut</strong> — pohybový aparát, sportovní zranění, VDT</li>
+        <li><strong>Psycholog</strong> — vývojové poruchy, školní problémy, úzkosti</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<hr class="sdiv">
+
+<!-- 06 VĚKOVÉ SKUPINY -->
+<section>
+  <div class="section-head">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Věkové skupiny <em>&amp; emoce</em></h2>
+  </div>
+
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th>Věk</th><th>Typická potřeba</th><th>Emoce rodiče</th></tr></thead>
+      <tbody>
+        <tr><td>0–1 rok (novorozenec)</td><td>Screening, kojení, první nemoci</td><td>Strach z neznámého, hledání jistoty</td></tr>
+        <tr><td>1–3 roky (batole)</td><td>Opakované infekty, ORL problémy</td><td>Únava z nemocí, touha po řešení</td></tr>
+        <tr><td>3–6 let (předškolák)</td><td>Alergie, kůže, školka</td><td>Obavy z adaptace, hledání komplexní péče</td></tr>
+        <tr><td>6–15 let (školák)</td><td>Sport. zranění, soustředění, VDT</td><td>Chce aktivní dítě zpět do sportu/školy</td></tr>
+        <tr><td>15+ (dospívající)</td><td>Psychologie, kůže, sport</td><td>Diskrétní, neodsuzující přístup</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<hr class="sdiv">
+
+<!-- 07 CTA HIERARCHIE -->
+<section>
+  <div class="section-head">
+    <span class="section-num">07</span>
+    <h2 class="section-title">CTA <em>hierarchie</em></h2>
+  </div>
+
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th>#</th><th>Text CTA</th><th>Pozice v textu</th><th>Akce</th></tr></thead>
+      <tbody>
+        <tr><td>CTA 1</td><td><strong>„Objednat dítě online"</strong></td><td>Pod H1 / perexem</td><td>Objednávkový formulář</td></tr>
+        <tr><td>CTA 2</td><td><strong>„Poznat náš tým"</strong></td><td>Pod sekcí tým</td><td>Stránky lékařů</td></tr>
+        <tr><td>CTA 3</td><td><strong>„Zaregistrovat novorozence"</strong></td><td>Sekce novorozenci</td><td>Registrační formulář</td></tr>
+        <tr><td>CTA 4</td><td><strong>„Zjistit ceník"</strong></td><td>Footer článku</td><td>Ceník / programy péče</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<hr class="sdiv">
+
+<!-- 08 KAMPAŇOVÁ LOGIKA -->
+<section>
+  <div class="section-head">
+    <span class="section-num">08</span>
+    <h2 class="section-title">Kampaňová <em>logika</em></h2>
+  </div>
+
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th>Platforma</th><th>Formát</th><th>Cílení</th></tr></thead>
+      <tbody>
+        <tr><td>Google Search</td><td>Textové reklamy</td><td>soukromý pediatr Praha, pediatr Praha 6 + longtail</td></tr>
+        <tr><td>Google Display</td><td>Bannerová reklama</td><td>Remarketing — návštěvníci webu MY CLINIC</td></tr>
+        <tr><td>Meta (FB + IG)</td><td>Carousel, single image, video</td><td>Rodiče 28–42 Praha, zájmy: rodičovství, zdraví dítěte</td></tr>
+        <tr><td>Sklik (Seznam)</td><td>Textové reklamy</td><td>dětský lékař Praha 6, soukromá pediatrie Praha</td></tr>
+        <tr><td>Bing Ads</td><td>Textové reklamy</td><td>Expati, firemní klientela (MS ekosystém)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<hr class="sdiv">
+
+<!-- 09 MĚŘENÍ -->
+<section>
+  <div class="section-head">
+    <span class="section-num">09</span>
+    <h2 class="section-title">Měření <em>&amp; tracking</em></h2>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-label">GA4 + konverzní události</span></div>
+    <div class="block-body">
+      <ul>
+        <li><strong>Scroll depth</strong> — milníky 25 %, 50 %, 75 %, 100 % jako GA4 eventy</li>
+        <li><strong>CTA kliknutí</strong> — každé CTA jako samostatný GA4 event</li>
+        <li><strong>Konverze</strong> — odeslání registračního / objednávkového formuláře</li>
+        <li><strong>Time on page</strong> — průměrná doba čtení (cíl: min. 3 minuty)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<hr class="sdiv">
+
+<!-- 10 REMARKETING -->
+<section>
+  <div class="section-head">
+    <span class="section-num">10</span>
+    <h2 class="section-title">Remarketing <em>&amp; audience</em></h2>
+  </div>
+
+  <div class="t-wrap">
+    <table class="t">
+      <thead><tr><th>Audience</th><th>Podmínka</th><th>Sdělení</th></tr></thead>
+      <tbody>
+        <tr><td>Čtenáři advertoriálu</td><td>/tymova-pece, scroll &gt;50 %</td><td>„Ještě přemýšlíte? Přijďte na bezplatnou konzultaci."</td></tr>
+        <tr><td>Opuštění formuláře</td><td>Zahájení, ale nedokončení</td><td>„Registrace trvá 2 minuty. Dokončete objednávku."</td></tr>
+        <tr><td>Návštěvníci ceníku</td><td>/cenik/ bez konverze</td><td>„MY Care program — fixní měsíční částka."</td></tr>
+        <tr><td>Čtenáři A02</td><td>/pediatrie/novorozenci</td><td>„Zaregistrujte miminko ještě před porodem."</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</div><!-- /container -->
+
+<!-- COLOPHON -->
+<div class="container">
+  <footer class="colophon">
+    <div class="colophon-inner">
+      <div>Zadání: Blanka Albrechtová · <a href="mailto:b.albrechtova@myclinic.cz">b.albrechtova@myclinic.cz</a> &nbsp;·&nbsp; SEO &amp; AI vrstva: Zbyněk Fridrich · <a href="mailto:jsem@zbynekfridrich.cz">jsem@zbynekfridrich.cz</a></div>
+      <div>Advertoriál 01 · Týmová péče · MY CLINIC · 2026</div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
